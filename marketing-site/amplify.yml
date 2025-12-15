@@ -1,0 +1,25 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing Next.js dependencies for Screen Time Journey marketing site..."
+        - npm ci
+        - echo "Dependencies installed successfully"
+    build:
+      commands:
+        - echo "Building Next.js marketing site for production..."
+        - npm run build
+        - echo "Exporting static files..."
+    postBuild:
+      commands:
+        - echo "✅ Next.js marketing site build complete"
+        - echo "🚀 Ready for deployment to screentimejourney.com"
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
