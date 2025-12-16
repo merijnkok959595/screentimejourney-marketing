@@ -3,15 +3,27 @@ frontend:
   phases:
     preBuild:
       commands:
+        - echo "Node version:"
+        - node --version
+        - echo "NPM version:"
+        - npm --version
         - echo "Installing React dependencies..."
         - npm ci
+        - echo "Listing dependencies..."
+        - npm list --depth=0
     build:
       commands:
         - echo "Building React app..."
         - npm run build
+        - echo "Build completed, checking output..."
+        - ls -la build/
+        - echo "Checking if index.html exists..."
+        - test -f build/index.html && echo "✅ index.html found" || echo "❌ index.html missing"
     postBuild:
       commands:
         - echo "React build complete"
+        - echo "Final build directory contents:"
+        - ls -la build/
   artifacts:
     baseDirectory: build
     files:
@@ -19,4 +31,7 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+  environment:
+    variables:
+      NODE_OPTIONS: '--max_old_space_size=4096'
 
