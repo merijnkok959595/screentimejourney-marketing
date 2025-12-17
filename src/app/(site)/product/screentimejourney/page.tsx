@@ -9,7 +9,7 @@ import PriceDisplay from '@/components/Common/PriceDisplay';
 const ScreenTimeJourneyProductPage = () => {
   const [expandedQuickFaq, setExpandedQuickFaq] = useState<number | null>(null);
   const [showStickyCart, setShowStickyCart] = useState(false);
-  const mainButtonRef = useRef<HTMLAnchorElement>(null);
+  const mainButtonRef = useRef<HTMLDivElement>(null);
 
   const toggleQuickFaq = (index: number) => {
     setExpandedQuickFaq(expandedQuickFaq === index ? null : index);
