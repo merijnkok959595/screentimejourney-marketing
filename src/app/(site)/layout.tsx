@@ -1,17 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import "../css/euclid-circular-a-font.css";
-import "../css/style.css";
-import HomeHeader from "../../components/Header";
-import DefaultHeader from "../../components/Common/DefaultHeader";
+import "@/app/css/euclid-circular-a-font.css";
+import "@/app/css/style.css";
+import HomeHeader from "@/components/Header";
+import DefaultHeader from "@/components/Common/DefaultHeader";
 
-import { ModalProvider } from "../context/QuickViewModalContext";
-import { CartModalProvider } from "../context/CartSidebarModalContext";
+import { ModalProvider } from "@/app/context/QuickViewModalContext";
+import { CartModalProvider } from "@/app/context/CartSidebarModalContext";
 import { ReduxProvider } from "@/redux/provider";
 import QuickViewModal from "@/components/Common/QuickViewModal";
 import CartSidebarModal from "@/components/Common/CartSidebarModal";
-import { PreviewSliderProvider } from "../context/PreviewSliderContext";
+import { PreviewSliderProvider } from "@/app/context/PreviewSliderContext";
 import PreviewSliderModal from "@/components/Common/PreviewSlider";
 
 import AnnouncementBar from "@/components/Common/AnnouncementBar";
