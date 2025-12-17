@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Footer from '@/components/Common/Footer';
 import { COGNITO_CONFIG } from '@/lib/cognito';
 
-const PaymentSuccessPage = () => {
+const PaymentSuccessContent = () => {
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<'processing' | 'success' | 'error'>('processing');
   const [userAccount, setUserAccount] = useState<any>(null);
@@ -256,6 +256,24 @@ const PaymentSuccessPage = () => {
         }
       `}</style>
     </main>
+  );
+};
+
+const PaymentSuccessPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 flex items-center justify-center">
+        <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 text-center">
+          <div className="animate-pulse">
+            <div className="h-4 bg-gray-200 rounded w-3/4 mb-4 mx-auto"></div>
+            <div className="h-4 bg-gray-200 rounded w-1/2 mb-4 mx-auto"></div>
+            <div className="h-4 bg-gray-200 rounded w-2/3 mx-auto"></div>
+          </div>
+        </div>
+      </div>
+    }>
+      <PaymentSuccessContent />
+    </Suspense>
   );
 };
 

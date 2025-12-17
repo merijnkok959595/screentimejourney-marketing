@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Removed 'export' output for Vercel deployment (supports API routes)
   trailingSlash: true,
   images: {
     remotePatterns: [
@@ -11,9 +11,6 @@ const nextConfig = {
       },
     ],
     unoptimized: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,

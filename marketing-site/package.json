@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
-    "@stripe/stripe-js": "^4.10.0",
     "@stripe/react-stripe-js": "^2.8.0",
-    "aws-amplify": "^5.3.21",
+    "@stripe/stripe-js": "^4.10.0",
     "autoprefixer": "10.4.15",
+    "aws-amplify": "^5.3.29",
     "next": "^16.0.4",
     "next-auth": "^4.24.13",
     "next-sanity": "^11.6.9",
