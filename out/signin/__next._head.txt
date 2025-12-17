@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[44530,["/_next/static/chunks/51c04f9a308a45ea.js","/_next/static/chunks/a9d89528b5acdd1f.js"],"ViewportBoundary"]
+4:I[44530,["/_next/static/chunks/51c04f9a308a45ea.js","/_next/static/chunks/a9d89528b5acdd1f.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+7:I[17289,["/_next/static/chunks/51c04f9a308a45ea.js","/_next/static/chunks/a9d89528b5acdd1f.js"],"IconMark"]
+0:{"buildId":"HLAJBfoi4VqoqphpSLwFs","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],null]}],"loading":null,"isPartial":false}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"Signin Page | NextCommerce Nextjs E-commerce template"}],["$","meta","1",{"name":"description","content":"This is Signin Page for NextCommerce Template"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.c9842cc1.ico","sizes":"1635x1635","type":"image/x-icon"}],["$","$L7","3",{}]]

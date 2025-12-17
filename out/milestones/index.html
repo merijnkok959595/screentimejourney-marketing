@@ -1,0 +1,156 @@
+<!DOCTYPE html><!--HLAJBfoi4VqoqphpSLwFs--><html lang="en"><head><meta charSet="utf-8"/><link rel="preconnect" href="/" crossorigin=""/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/chunks/d572bd33920b2f0c.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/6ce8388e98b23777.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/00bc27aa57b7e36c.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/ea6431d4d80b1470.js"/><script src="/_next/static/chunks/3c9db5e369336ec4.js" async=""></script><script src="/_next/static/chunks/1db7ccf2c7f39aee.js" async=""></script><script src="/_next/static/chunks/43d6eccc3cf81e6c.js" async=""></script><script src="/_next/static/chunks/turbopack-3729feef54236a2b.js" async=""></script><script src="/_next/static/chunks/51c04f9a308a45ea.js" async=""></script><script src="/_next/static/chunks/a9d89528b5acdd1f.js" async=""></script><script src="/_next/static/chunks/0ecc1ee2dc135c4c.js" async=""></script><script src="/_next/static/chunks/bb6e8bfff1d52a66.js" async=""></script><script src="/_next/static/chunks/f83b67c3bb4fddf0.js" async=""></script><script src="/_next/static/chunks/48ce4b5af8cf3697.js" async=""></script><script src="/_next/static/chunks/5efd558231d769cb.js" async=""></script><link rel="preload" href="https://cdn.shopify.com/s/files/1/0866/6749/3623/files/stj_footer_v2.png?v=1757876933" as="image"/><title>SCREENTIMEJOURNEY</title><meta name="description" content="Break free from digital addiction and reclaim your focus with Screen Time Journey"/><link rel="icon" href="/favicon.ico"/><link rel="icon" href="/favicon.ico?favicon.c9842cc1.ico" sizes="1635x1635" type="image/x-icon"/><script>
+              // Ultra-early prevention - runs immediately in head
+              (function() {
+                'use strict';
+                
+                // Override classList.add globally for logo elements
+                const originalAdd = Element.prototype.classList.add;
+                Element.prototype.classList.add = function(...classes) {
+                  // If this is a logo on mobile, filter out animation classes
+                  if (window.innerWidth <= 1024 && 
+                      this.classList.contains('header-logo')) {
+                    const filteredClasses = classes.filter(className => 
+                      !className.includes('logo-animate-shrink') && 
+                      !className.includes('logo-animate-grow')
+                    );
+                    if (filteredClasses.length > 0) {
+                      originalAdd.apply(this, filteredClasses);
+                    }
+                    if (classes.length !== filteredClasses.length) {
+                      console.log('🛡️ ULTRA-EARLY: Blocked logo animation class at source');
+                    }
+                  } else {
+                    originalAdd.apply(this, classes);
+                  }
+                };
+                
+                console.log('🛡️ ULTRA-EARLY: Logo animation prevention loaded in head');
+              })();
+            </script><script src="/_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><script>
+              (function() {
+                'use strict';
+                
+                function isMobile() { return window.innerWidth <= 1024; }
+                
+                function removeLogoAnimations() {
+                  if (isMobile()) {
+                    const logos = document.querySelectorAll('.header-logo');
+                    logos.forEach(logo => {
+                      const hadClasses = logo.classList.contains('logo-animate-shrink') || logo.classList.contains('logo-animate-grow');
+                      if (hadClasses) {
+                        logo.classList.remove('logo-animate-shrink', 'logo-animate-grow');
+                        logo.style.animation = 'none !important';
+                        // Don't override transform for mobile grid layout - only reset if it was set by animations
+                        if (logo.style.transform && (logo.style.transform.includes('scale') || logo.style.transform.includes('translate'))) {
+                          logo.style.transform = '';
+                        }
+                        console.log('🚫 AGGRESSIVE: Removed logo animation classes on mobile (preserving grid layout)');
+                      }
+                    });
+                  }
+                }
+                
+                // Run continuously and aggressively
+                let intervalId;
+                function startAggressiveMode() {
+                  if (isMobile()) {
+                    // Run every 50ms to catch any attempts to add animation classes
+                    intervalId = setInterval(removeLogoAnimations, 50);
+                    console.log('🔥 AGGRESSIVE MODE: Started continuous logo animation removal');
+                  } else if (intervalId) {
+                    clearInterval(intervalId);
+                    console.log('🔥 AGGRESSIVE MODE: Stopped (desktop detected)');
+                  }
+                }
+                
+                function resetScrollingBanner() {
+                  const scrollingBanner = document.querySelector('.dbtfy-scrolling-banner ul');
+                  
+                  if (scrollingBanner) {
+                    console.log('🎬 Resetting scrolling banner animation');
+                    // Force animation reset
+                    scrollingBanner.style.animation = 'none';
+                    
+                    // Trigger reflow to ensure the animation stops
+                    scrollingBanner.offsetHeight;
+                    
+                    // Restart animation from beginning
+                    scrollingBanner.style.animation = '';
+                  }
+                }
+                
+                // Immediate execution
+                removeLogoAnimations();
+                resetScrollingBanner();
+                startAggressiveMode();
+                
+                // Ultra-fast mutation observer
+                const observer = new MutationObserver(function(mutations) {
+                  if (!isMobile()) return;
+                  
+                  let needsCleanup = false;
+                  mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                      const target = mutation.target;
+                      if (target.classList && target.classList.contains('header-logo')) {
+                        if (target.classList.contains('logo-animate-shrink') || 
+                            target.classList.contains('logo-animate-grow')) {
+                          needsCleanup = true;
+                        }
+                      }
+                    }
+                  });
+                  
+                  if (needsCleanup) {
+                    // Immediate cleanup
+                    removeLogoAnimations();
+                    console.log('⚡ ULTRA-FAST: Blocked animation class via MutationObserver');
+                  }
+                });
+                
+                // Start observing everything
+                function startObserving() {
+                  // Watch the entire document for changes
+                  observer.observe(document.body, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['class']
+                  });
+                  
+                  // Also watch individual logos
+                  const logos = document.querySelectorAll('.header-logo');
+                  logos.forEach(logo => {
+                    observer.observe(logo, { 
+                      attributes: true, 
+                      attributeFilter: ['class'] 
+                    });
+                  });
+                }
+                
+                // Initialize observers
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', startObserving);
+                } else {
+                  startObserving();
+                }
+                
+                // Aggressive scroll listener
+                window.addEventListener('scroll', function() {
+                  if (isMobile()) {
+                    removeLogoAnimations(); // Run on every scroll event
+                  }
+                }, { passive: true });
+                
+                // Window resize handler
+                let resizeTimer;
+                window.addEventListener('resize', function() {
+                  clearTimeout(resizeTimer);
+                  resizeTimer = setTimeout(function() {
+                    startAggressiveMode(); // Restart aggressive mode based on new screen size
+                  }, 100);
+                });
+                
+                console.log('✅ AGGRESSIVE Mobile logo animation interceptor loaded');
+              })();
+            </script><div class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white"><div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-blue border-t-transparent"></div></div><script src="/_next/static/chunks/ea6431d4d80b1470.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[88188,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"default\"]\n3:I[31836,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"default\"]\n4:I[74983,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"ClientSegmentRoot\"]\n5:I[85441,[\"/_next/static/chunks/0ecc1ee2dc135c4c.js\",\"/_next/static/chunks/bb6e8bfff1d52a66.js\",\"/_next/static/chunks/f83b67c3bb4fddf0.js\",\"/_next/static/chunks/48ce4b5af8cf3697.js\"],\"default\"]\n7:I[430,[\"/_next/static/chunks/0ecc1ee2dc135c4c.js\",\"/_next/static/chunks/bb6e8bfff1d52a66.js\",\"/_next/static/chunks/f83b67c3bb4fddf0.js\",\"/_next/static/chunks/48ce4b5af8cf3697.js\",\"/_next/static/chunks/5efd558231d769cb.js\"],\"default\"]\n8:I[72640,[\"/_next/static/chunks/0ecc1ee2dc135c4c.js\",\"/_next/static/chunks/bb6e8bfff1d52a66.js\",\"/_next/static/chunks/f83b67c3bb4fddf0.js\",\"/_next/static/chunks/48ce4b5af8cf3697.js\",\"/_next/static/chunks/5efd558231d769cb.js\"],\"\"]\n10:I[63275,[],\"default\"]\n:HL[\"/_next/static/chunks/d572bd33920b2f0c.css\",\"style\"]\n:HL[\"/_next/static/chunks/6ce8388e98b23777.css\",\"style\"]\n:HL[\"/_next/static/chunks/00bc27aa57b7e36c.css\",\"style\"]\n:HC[\"/\",\"\"]\n:HL[\"https://cdn.shopify.com/s/files/1/0866/6749/3623/files/stj_footer_v2.png?v=1757876933\",\"image\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"HLAJBfoi4VqoqphpSLwFs\",\"c\":[\"\",\"milestones\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"(site)\",{\"children\":[\"(pages)\",{\"children\":[\"milestones\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true]}],[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/d572bd33920b2f0c.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/6ce8388e98b23777.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"2\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/00bc27aa57b7e36c.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/0ecc1ee2dc135c4c.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/bb6e8bfff1d52a66.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/f83b67c3bb4fddf0.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/_next/static/chunks/48ce4b5af8cf3697.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L4\",null,{\"Component\":\"$5\",\"slots\":{\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:style\",\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:1:props:style\",\"children\":404}],[\"$\",\"div\",null,{\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:2:props:style\",\"children\":[\"$\",\"h2\",null,{\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:2:props:children:props:style\",\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]},\"serverProvidedParams\":{\"params\":{},\"promises\":[\"$@6\"]}}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"main\",null,{\"children\":[[\"$\",\"div\",null,{\"style\":{\"padding\":\"60px 0 60px 0\",\"background\":\"#f9f9f9\"},\"children\":[\"$\",\"div\",null,{\"style\":{\"maxWidth\":\"1200px\",\"margin\":\"0 auto\",\"padding\":\"0 20px\",\"textAlign\":\"center\"},\"children\":[\"$\",\"h1\",null,{\"style\":{\"fontSize\":\"3.5rem\",\"fontWeight\":\"700\",\"color\":\"#111827\",\"marginBottom\":\"0\",\"fontFamily\":\"DM Serif Display, serif\"},\"children\":\"Milestones\"}]}]}],[\"$\",\"$L7\",null,{\"maleLabel\":\"Men's Journey\",\"femaleLabel\":\"Women's Journey\"}],[\"$\",\"footer\",null,{\"className\":\"footer\",\"children\":[[\"$\",\"div\",null,{\"className\":\"container footer-inner\",\"children\":[[\"$\",\"div\",null,{\"className\":\"footer-column footer-logo-column\",\"children\":[[\"$\",\"$L8\",null,{\"href\":\"/\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://cdn.shopify.com/s/files/1/0866/6749/3623/files/stj_footer_v2.png?v=1757876933\",\"alt\":\"Screen Time Journey Logo\",\"className\":\"footer-logo\"}]}],\"$L9\"]}],\"$La\",\"$Lb\"]}],\"$Lc\"]}]]}],[\"$Ld\"],\"$Le\"]}],{},null,false,false]},null,false,false]},null,false,false]},null,false,false]},null,false,false],\"$Lf\",false]],\"m\":\"$undefined\",\"G\":[\"$10\",[]],\"S\":true}\n"])</script><script>self.__next_f.push([1,"11:I[44530,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"OutletBoundary\"]\n12:\"$Sreact.suspense\"\n14:I[44530,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"ViewportBoundary\"]\n16:I[44530,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"MetadataBoundary\"]\n9:[\"$\",\"div\",null,{\"className\":\"footer-contact\",\"children\":[[\"$\",\"a\",null,{\"href\":\"mailto:info@screentimejourney.com\",\"className\":\"footer-contact-link\",\"children\":\"info@screentimejourney.com\"}],[\"$\",\"a\",null,{\"href\":\"tel:+31649232152\",\"className\":\"footer-contact-link\",\"children\":\"+31 6 49232152\"}],[\"$\",\"div\",null,{\"className\":\"footer-address\",\"children\":\"Linnaeusstraat 35F-14, Amsterdam, Netherlands\"}]]}]\na:[\"$\",\"div\",null,{\"className\":\"footer-column\",\"children\":[[\"$\",\"h4\",null,{\"className\":\"footer-title\",\"children\":\"About\"}],[\"$\",\"div\",null,{\"className\":\"footer-links\",\"children\":[[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/faq\",\"children\":\"FAQ\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/contact\",\"children\":\"Contact\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/about-me\",\"children\":\"About Me\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/milestones\",\"children\":\"Milestones\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/leaderboard\",\"children\":\"Leaderboard\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/job-opportunities\",\"children\":\"Job Opportunities\"}]]}]]}]\nb:[\"$\",\"div\",null,{\"className\":\"footer-column\",\"children\":[[\"$\",\"h4\",null,{\"className\":\"footer-title\",\"children\":\"Blog Posts\"}],[\"$\",\"div\",null,{\"className\":\"footer-links\",\"children\":[[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/blog/why-quitting-porn-is-the-key-to-digital-freedom\",\"children\":\"Why Quitting Porn Is the ...\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/blog/dopamine-reset-how-to-break-free\",\"children\":\"The Dopamine Reset: How to Break ...\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/blog/from-screen-addiction-to-freedom\",\"children\":\"From Screen Addiction to Freedom ...\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/blog/10-proven-strategies-build-discipline\",\"children\":\"10 Proven Strategies to Build Discipline ...\"}],[\"$\",\"$L8\",null,{\"className\":\"footer-link\",\"href\":\"/blog/how-to-take-control-screen-time\",\"children\":\"How to Take Control of Your Screen Time ...\"}]]}]]}]\nc:[\"$\",\"div\",null,{\"className\":\"container footer-bottom\",\"children\":[\"$\",\"div\",null,{\"className\":\"footer-policies\",\"children\":[[\"$\",\"span\",null,{\"children\":\"2025, SCREENTIMEJOURNEY ©\"}],[\"$\",\"div\",null,{\"className\":\"footer-policy-links\",\"children\":[[\"$\",\"$L8\",null,{\"href\":\"/privacy_policy\",\"className\":\"footer-policy-link\",\"children\":\"Privacy policy\"}],[\"$\",\"$L8\",null,{\"href\":\"/terms_of_service\",\"className\":\"footer-policy-link\",\"children\":\"Terms of service\"}],[\"$\",\"$L8\",null,{\"href\":\"/refund_policy\",\"className\":\"footer-policy-link\",\"children\":\"Refund policy\"}],[\"$\",\"$L8\",null,{\"href\":\"/shipping_policy\",\"className\":\"footer-policy-link\",\"children\":\"Shipping policy\"}],[\"$\",\"$L8\",null,{\"href\":\"/cookie_preferences\",\"className\":\"footer-policy-link\",\"children\":\"Cookie preferences\"}]]}]]}]}]\nd:[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/5efd558231d769cb.js\",\"async\":true,\"nonce\":\"$undefined\"}]\ne:[\"$\",\"$L11\",null,{\"children\":[\"$\",\"$12\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@13\"}]}]\nf:[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L14\",null,{\"children\":\"$@15\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L16\",null,{\"children\":[\"$\",\"$12\",null,{\"name\":\"Next.Metadata\",\"children\":\"$@17\"}]}]}],null]}]\n6:\"$0:f:0:1:1:children:0:props:children:1:props:serverProvidedParams:params\"\n"])</script><script>self.__next_f.push([1,"15:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"18:I[17289,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"IconMark\"]\n17:[[\"$\",\"link\",\"0\",{\"rel\":\"icon\",\"href\":\"/favicon.ico?favicon.c9842cc1.ico\",\"sizes\":\"1635x1635\",\"type\":\"image/x-icon\"}],[\"$\",\"$L18\",\"1\",{}]]\n13:null\n"])</script></body></html>

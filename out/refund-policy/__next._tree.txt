@@ -1,0 +1,6 @@
+:HL["/_next/static/chunks/d572bd33920b2f0c.css","style"]
+:HL["/_next/static/chunks/6ce8388e98b23777.css","style"]
+:HL["/_next/static/chunks/00bc27aa57b7e36c.css","style"]
+:HC["/",""]
+:HL["https://cdn.shopify.com/s/files/1/0866/6749/3623/files/stj_footer_v2.png?v=1757876933","image"]
+0:{"buildId":"HLAJBfoi4VqoqphpSLwFs","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(site)","paramType":null,"paramKey":"(site)","hasRuntimePrefetch":false,"slots":{"children":{"name":"refund-policy","paramType":null,"paramKey":"refund-policy","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true}},"isRootLayout":false},"staleTime":300}

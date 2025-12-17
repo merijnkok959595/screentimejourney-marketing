@@ -7,31 +7,32 @@ frontend:
         - node --version
         - echo "NPM version:"
         - npm --version
-        - echo "Installing React dependencies..."
+        - echo "Installing Next.js dependencies for Screen Time Journey marketing site..."
         - npm ci
         - echo "Listing dependencies..."
         - npm list --depth=0
     build:
       commands:
-        - echo "Building React app..."
+        - echo "Building Next.js marketing site for production..."
         - npm run build
         - echo "Build completed, checking output..."
-        - ls -la build/
-        - echo "Checking if index.html exists..."
-        - test -f build/index.html && echo "✅ index.html found" || echo "❌ index.html missing"
+        - ls -la .next/
+        - echo "Checking if static export exists..."
+        - test -d .next && echo "✅ .next directory found" || echo "❌ .next directory missing"
     postBuild:
       commands:
-        - echo "React build complete"
+        - echo "✅ Next.js marketing site build complete"
+        - echo "🚀 Ready for deployment to screentimejourney.com"
         - echo "Final build directory contents:"
-        - ls -la build/
+        - ls -la .next/
   artifacts:
-    baseDirectory: build
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
+      - .next/cache/**/*
   environment:
     variables:
       NODE_OPTIONS: '--max_old_space_size=4096'
-

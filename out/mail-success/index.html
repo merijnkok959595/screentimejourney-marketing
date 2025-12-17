@@ -1,0 +1,156 @@
+<!DOCTYPE html><!--HLAJBfoi4VqoqphpSLwFs--><html lang="en"><head><meta charSet="utf-8"/><link rel="preconnect" href="/" crossorigin=""/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/chunks/d572bd33920b2f0c.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/6ce8388e98b23777.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/00bc27aa57b7e36c.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/ea6431d4d80b1470.js"/><script src="/_next/static/chunks/3c9db5e369336ec4.js" async=""></script><script src="/_next/static/chunks/1db7ccf2c7f39aee.js" async=""></script><script src="/_next/static/chunks/43d6eccc3cf81e6c.js" async=""></script><script src="/_next/static/chunks/turbopack-3729feef54236a2b.js" async=""></script><script src="/_next/static/chunks/51c04f9a308a45ea.js" async=""></script><script src="/_next/static/chunks/a9d89528b5acdd1f.js" async=""></script><script src="/_next/static/chunks/0ecc1ee2dc135c4c.js" async=""></script><script src="/_next/static/chunks/bb6e8bfff1d52a66.js" async=""></script><script src="/_next/static/chunks/f83b67c3bb4fddf0.js" async=""></script><script src="/_next/static/chunks/48ce4b5af8cf3697.js" async=""></script><title>SCREENTIMEJOURNEY</title><meta name="description" content="Break free from digital addiction and reclaim your focus with Screen Time Journey"/><link rel="icon" href="/favicon.ico"/><title>Mail Success Page | NextCommerce Nextjs E-commerce template</title><meta name="description" content="This is Mail Success Page for NextCommerce Template"/><link rel="icon" href="/favicon.ico?favicon.c9842cc1.ico" sizes="1635x1635" type="image/x-icon"/><script>
+              // Ultra-early prevention - runs immediately in head
+              (function() {
+                'use strict';
+                
+                // Override classList.add globally for logo elements
+                const originalAdd = Element.prototype.classList.add;
+                Element.prototype.classList.add = function(...classes) {
+                  // If this is a logo on mobile, filter out animation classes
+                  if (window.innerWidth <= 1024 && 
+                      this.classList.contains('header-logo')) {
+                    const filteredClasses = classes.filter(className => 
+                      !className.includes('logo-animate-shrink') && 
+                      !className.includes('logo-animate-grow')
+                    );
+                    if (filteredClasses.length > 0) {
+                      originalAdd.apply(this, filteredClasses);
+                    }
+                    if (classes.length !== filteredClasses.length) {
+                      console.log('🛡️ ULTRA-EARLY: Blocked logo animation class at source');
+                    }
+                  } else {
+                    originalAdd.apply(this, classes);
+                  }
+                };
+                
+                console.log('🛡️ ULTRA-EARLY: Logo animation prevention loaded in head');
+              })();
+            </script><script src="/_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><script>
+              (function() {
+                'use strict';
+                
+                function isMobile() { return window.innerWidth <= 1024; }
+                
+                function removeLogoAnimations() {
+                  if (isMobile()) {
+                    const logos = document.querySelectorAll('.header-logo');
+                    logos.forEach(logo => {
+                      const hadClasses = logo.classList.contains('logo-animate-shrink') || logo.classList.contains('logo-animate-grow');
+                      if (hadClasses) {
+                        logo.classList.remove('logo-animate-shrink', 'logo-animate-grow');
+                        logo.style.animation = 'none !important';
+                        // Don't override transform for mobile grid layout - only reset if it was set by animations
+                        if (logo.style.transform && (logo.style.transform.includes('scale') || logo.style.transform.includes('translate'))) {
+                          logo.style.transform = '';
+                        }
+                        console.log('🚫 AGGRESSIVE: Removed logo animation classes on mobile (preserving grid layout)');
+                      }
+                    });
+                  }
+                }
+                
+                // Run continuously and aggressively
+                let intervalId;
+                function startAggressiveMode() {
+                  if (isMobile()) {
+                    // Run every 50ms to catch any attempts to add animation classes
+                    intervalId = setInterval(removeLogoAnimations, 50);
+                    console.log('🔥 AGGRESSIVE MODE: Started continuous logo animation removal');
+                  } else if (intervalId) {
+                    clearInterval(intervalId);
+                    console.log('🔥 AGGRESSIVE MODE: Stopped (desktop detected)');
+                  }
+                }
+                
+                function resetScrollingBanner() {
+                  const scrollingBanner = document.querySelector('.dbtfy-scrolling-banner ul');
+                  
+                  if (scrollingBanner) {
+                    console.log('🎬 Resetting scrolling banner animation');
+                    // Force animation reset
+                    scrollingBanner.style.animation = 'none';
+                    
+                    // Trigger reflow to ensure the animation stops
+                    scrollingBanner.offsetHeight;
+                    
+                    // Restart animation from beginning
+                    scrollingBanner.style.animation = '';
+                  }
+                }
+                
+                // Immediate execution
+                removeLogoAnimations();
+                resetScrollingBanner();
+                startAggressiveMode();
+                
+                // Ultra-fast mutation observer
+                const observer = new MutationObserver(function(mutations) {
+                  if (!isMobile()) return;
+                  
+                  let needsCleanup = false;
+                  mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                      const target = mutation.target;
+                      if (target.classList && target.classList.contains('header-logo')) {
+                        if (target.classList.contains('logo-animate-shrink') || 
+                            target.classList.contains('logo-animate-grow')) {
+                          needsCleanup = true;
+                        }
+                      }
+                    }
+                  });
+                  
+                  if (needsCleanup) {
+                    // Immediate cleanup
+                    removeLogoAnimations();
+                    console.log('⚡ ULTRA-FAST: Blocked animation class via MutationObserver');
+                  }
+                });
+                
+                // Start observing everything
+                function startObserving() {
+                  // Watch the entire document for changes
+                  observer.observe(document.body, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['class']
+                  });
+                  
+                  // Also watch individual logos
+                  const logos = document.querySelectorAll('.header-logo');
+                  logos.forEach(logo => {
+                    observer.observe(logo, { 
+                      attributes: true, 
+                      attributeFilter: ['class'] 
+                    });
+                  });
+                }
+                
+                // Initialize observers
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', startObserving);
+                } else {
+                  startObserving();
+                }
+                
+                // Aggressive scroll listener
+                window.addEventListener('scroll', function() {
+                  if (isMobile()) {
+                    removeLogoAnimations(); // Run on every scroll event
+                  }
+                }, { passive: true });
+                
+                // Window resize handler
+                let resizeTimer;
+                window.addEventListener('resize', function() {
+                  clearTimeout(resizeTimer);
+                  resizeTimer = setTimeout(function() {
+                    startAggressiveMode(); // Restart aggressive mode based on new screen size
+                  }, 100);
+                });
+                
+                console.log('✅ AGGRESSIVE Mobile logo animation interceptor loaded');
+              })();
+            </script><div class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white"><div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-blue border-t-transparent"></div></div><script src="/_next/static/chunks/ea6431d4d80b1470.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[88188,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"default\"]\n3:I[31836,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"default\"]\n4:I[74983,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"ClientSegmentRoot\"]\n5:I[85441,[\"/_next/static/chunks/0ecc1ee2dc135c4c.js\",\"/_next/static/chunks/bb6e8bfff1d52a66.js\",\"/_next/static/chunks/f83b67c3bb4fddf0.js\",\"/_next/static/chunks/48ce4b5af8cf3697.js\"],\"default\"]\nc:I[63275,[],\"default\"]\n:HL[\"/_next/static/chunks/d572bd33920b2f0c.css\",\"style\"]\n:HL[\"/_next/static/chunks/6ce8388e98b23777.css\",\"style\"]\n:HL[\"/_next/static/chunks/00bc27aa57b7e36c.css\",\"style\"]\n:HC[\"/\",\"\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"HLAJBfoi4VqoqphpSLwFs\",\"c\":[\"\",\"mail-success\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"(site)\",{\"children\":[\"(pages)\",{\"children\":[\"mail-success\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true]}],[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/d572bd33920b2f0c.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/6ce8388e98b23777.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"2\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/00bc27aa57b7e36c.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/0ecc1ee2dc135c4c.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/bb6e8bfff1d52a66.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/f83b67c3bb4fddf0.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/_next/static/chunks/48ce4b5af8cf3697.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L4\",null,{\"Component\":\"$5\",\"slots\":{\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:style\",\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:1:props:style\",\"children\":404}],[\"$\",\"div\",null,{\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:2:props:style\",\"children\":[\"$\",\"h2\",null,{\"style\":\"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:2:props:children:props:style\",\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]},\"serverProvidedParams\":{\"params\":{},\"promises\":[\"$@6\"]}}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"main\",null,{\"children\":[[\"$\",\"div\",null,{\"className\":\"overflow-hidden shadow-breadcrumb pt-[140px] sm:pt-[120px] lg:pt-[100px] xl:pt-[120px]\",\"children\":[\"$\",\"div\",null,{\"className\":\"border-t border-gray-3\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0 py-5 xl:py-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col sm:flex-row sm:items-center justify-between gap-3\",\"children\":[[\"$\",\"h1\",null,{\"className\":\"font-semibold text-dark text-xl sm:text-2xl xl:text-custom-2\",\"children\":\"MailSuccess\"}],[\"$\",\"ul\",null,{\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"li\",null,{\"className\":\"text-custom-sm hover:text-blue\",\"children\":\"$L7\"}],[\"$L8\"]]}]]}]}]}]}],\"$L9\"]}],null,\"$La\"]}],{},null,false,false]},null,false,false]},null,false,false]},null,false,false]},null,false,false],\"$Lb\",false]],\"m\":\"$undefined\",\"G\":[\"$c\",[]],\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[72640,[\"/_next/static/chunks/0ecc1ee2dc135c4c.js\",\"/_next/static/chunks/bb6e8bfff1d52a66.js\",\"/_next/static/chunks/f83b67c3bb4fddf0.js\",\"/_next/static/chunks/48ce4b5af8cf3697.js\"],\"\"]\ne:I[44530,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"OutletBoundary\"]\nf:\"$Sreact.suspense\"\n11:I[44530,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"ViewportBoundary\"]\n13:I[44530,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"MetadataBoundary\"]\n7:[\"$\",\"$Ld\",null,{\"href\":\"/\",\"children\":\"Home /\"}]\n8:[\"$\",\"li\",\"0\",{\"className\":\"text-custom-sm last:text-blue capitalize\",\"children\":\"MailSuccess\"}]\n"])</script><script>self.__next_f.push([1,"9:[\"$\",\"section\",null,{\"className\":\"overflow-hidden py-20 bg-gray-2\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"bg-white rounded-xl shadow-1 px-4 py-10 sm:py-15 lg:py-20 xl:py-25\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-center\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-bold text-blue text-4xl lg:text-[45px] lg:leading-[57px] mb-5\",\"children\":\"Successful!\"}],[\"$\",\"h3\",null,{\"className\":\"font-medium text-dark text-xl sm:text-2xl mb-3\",\"children\":\"Your message sent successfully\"}],[\"$\",\"p\",null,{\"className\":\"max-w-[491px] w-full mx-auto mb-7.5\",\"children\":\"Thank you so much for your message. We check e-mail frequently and will try our best to respond to your inquiry.\"}],[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"inline-flex items-center gap-2 font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark\",\"children\":[[\"$\",\"svg\",null,{\"className\":\"fill-current\",\"width\":\"20\",\"height\":\"20\",\"viewBox\":\"0 0 20 20\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M16.6654 9.37502C17.0105 9.37502 17.2904 9.65484 17.2904 10C17.2904 10.3452 17.0105 10.625 16.6654 10.625H8.95703L8.95703 15C8.95703 15.2528 8.80476 15.4807 8.57121 15.5774C8.33766 15.6742 8.06884 15.6207 7.89009 15.442L2.89009 10.442C2.77288 10.3247 2.70703 10.1658 2.70703 10C2.70703 9.83426 2.77288 9.67529 2.89009 9.55808L7.89009 4.55808C8.06884 4.37933 8.33766 4.32586 8.57121 4.42259C8.80475 4.51933 8.95703 4.74723 8.95703 5.00002L8.95703 9.37502H16.6654Z\",\"fill\":\"\"}]}],\"Back to Home\"]}]]}]}]}]}]\n"])</script><script>self.__next_f.push([1,"a:[\"$\",\"$Le\",null,{\"children\":[\"$\",\"$f\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@10\"}]}]\nb:[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L11\",null,{\"children\":\"$@12\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L13\",null,{\"children\":[\"$\",\"$f\",null,{\"name\":\"Next.Metadata\",\"children\":\"$@14\"}]}]}],null]}]\n6:\"$0:f:0:1:1:children:0:props:children:1:props:serverProvidedParams:params\"\n"])</script><script>self.__next_f.push([1,"12:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"15:I[17289,[\"/_next/static/chunks/51c04f9a308a45ea.js\",\"/_next/static/chunks/a9d89528b5acdd1f.js\"],\"IconMark\"]\n14:[[\"$\",\"title\",\"0\",{\"children\":\"Mail Success Page | NextCommerce Nextjs E-commerce template\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"This is Mail Success Page for NextCommerce Template\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/favicon.ico?favicon.c9842cc1.ico\",\"sizes\":\"1635x1635\",\"type\":\"image/x-icon\"}],[\"$\",\"$L15\",\"3\",{}]]\n10:null\n"])</script></body></html>
