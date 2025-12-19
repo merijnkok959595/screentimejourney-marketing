@@ -5273,7 +5273,7 @@ header[class*="bg-transparent"] .header-nav a {
   align-items: start;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .product-grid {
     grid-template-columns: 1fr;
     gap: 40px;

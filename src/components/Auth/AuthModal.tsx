@@ -124,9 +124,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg max-w-md w-full p-6">
+      <div className="bg-white rounded-lg max-w-md w-full p-8 shadow-2xl" style={{ fontFamily: 'var(--font-body)' }}>
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--brand-text)', fontFamily: 'var(--font-heading)' }}>
             {mode === 'signin' && 'Sign In'}
             {mode === 'signup' && 'Create Account'}  
             {mode === 'confirm' && 'Verify Email'}
@@ -151,7 +151,12 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                style={{ 
+                  fontFamily: 'var(--font-body)',
+                  focusBorderColor: 'var(--brand-primary)',
+                  focusRingColor: 'var(--brand-primary)'
+                }}
                 required
               />
             </div>
@@ -161,14 +166,23 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                style={{ 
+                  fontFamily: 'var(--font-body)',
+                  focusBorderColor: 'var(--brand-primary)',
+                  focusRingColor: 'var(--brand-primary)'
+                }}
                 required
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-purple-900 text-white py-2 px-4 rounded-md hover:bg-purple-800 disabled:opacity-50"
+              className="w-full text-white py-3 px-4 rounded-lg font-medium transition-all duration-200 disabled:opacity-50"
+              style={{ 
+                backgroundColor: 'var(--brand-primary)',
+                fontFamily: 'var(--font-body)'
+              }}
             >
               {loading ? 'Signing In...' : 'Sign In'}
             </button>
@@ -176,7 +190,8 @@ const AuthModal: React.FC<AuthModalProps> = ({
               <button
                 type="button"
                 onClick={() => setMode('forgot')}
-                className="text-purple-600 hover:text-purple-800 text-sm"
+                className="text-sm transition-colors duration-200"
+                style={{ color: 'var(--brand-primary)' }}
               >
                 Forgot Password?
               </button>
@@ -185,7 +200,8 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setMode('signup')}
-                  className="text-purple-600 hover:text-purple-800 text-sm font-medium"
+                  className="text-sm font-medium transition-colors duration-200"
+                  style={{ color: 'var(--brand-primary)' }}
                 >
                   Sign Up
                 </button>
@@ -202,7 +218,12 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                style={{ 
+                  fontFamily: 'var(--font-body)',
+                  focusBorderColor: 'var(--brand-primary)',
+                  focusRingColor: 'var(--brand-primary)'
+                }}
                 required
               />
             </div>
@@ -212,7 +233,12 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                style={{ 
+                  fontFamily: 'var(--font-body)',
+                  focusBorderColor: 'var(--brand-primary)',
+                  focusRingColor: 'var(--brand-primary)'
+                }}
                 required
               />
             </div>
@@ -222,14 +248,23 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                style={{ 
+                  fontFamily: 'var(--font-body)',
+                  focusBorderColor: 'var(--brand-primary)',
+                  focusRingColor: 'var(--brand-primary)'
+                }}
                 required
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-purple-900 text-white py-2 px-4 rounded-md hover:bg-purple-800 disabled:opacity-50"
+              className="w-full text-white py-3 px-4 rounded-lg font-medium transition-all duration-200 disabled:opacity-50"
+              style={{ 
+                backgroundColor: 'var(--brand-primary)',
+                fontFamily: 'var(--font-body)'
+              }}
             >
               {loading ? 'Creating Account...' : 'Create Account'}
             </button>
@@ -238,7 +273,8 @@ const AuthModal: React.FC<AuthModalProps> = ({
               <button
                 type="button"
                 onClick={() => setMode('signin')}
-                className="text-purple-600 hover:text-purple-800 text-sm font-medium"
+                className="text-sm font-medium transition-colors duration-200"
+                style={{ color: 'var(--brand-primary)' }}
               >
                 Sign In
               </button>

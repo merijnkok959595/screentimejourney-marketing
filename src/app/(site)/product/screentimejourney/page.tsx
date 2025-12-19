@@ -5,14 +5,33 @@ import MilestonesPreview from '@/components/Common/MilestonesPreview';
 import LeaderboardPreview from '@/components/Common/LeaderboardPreview';
 import StripeCheckout from '@/components/Stripe/StripeCheckout';
 import PriceDisplay from '@/components/Common/PriceDisplay';
+import AuthModal from '@/components/Auth/AuthModal';
 
 const ScreenTimeJourneyProductPage = () => {
   const [expandedQuickFaq, setExpandedQuickFaq] = useState<number | null>(null);
   const [showStickyCart, setShowStickyCart] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [proceedToCheckout, setProceedToCheckout] = useState(false);
   const mainButtonRef = useRef<HTMLDivElement>(null);
 
   const toggleQuickFaq = (index: number) => {
     setExpandedQuickFaq(expandedQuickFaq === index ? null : index);
+  };
+
+  const handleStartNow = () => {
+    setShowAuthModal(true);
+  };
+
+  const handleAuthSuccess = () => {
+    setShowAuthModal(false);
+    setProceedToCheckout(true);
+    // Trigger stripe checkout after auth
+    setTimeout(() => {
+      const stripeButton = document.querySelector('.hidden-stripe-button') as HTMLButtonElement;
+      if (stripeButton) {
+        stripeButton.click();
+      }
+    }, 500);
   };
 
   useEffect(() => {
@@ -159,16 +178,34 @@ const ScreenTimeJourneyProductPage = () => {
 
               {/* Start Now Button */}
               <div ref={mainButtonRef} style={{ width: '100%', marginBottom: '30px' }}>
-                <StripeCheckout 
-                  plan="premium"
-                  buttonText="Start now"
+                <button
+                  onClick={handleStartNow}
                   className="btn-primary product-pulse-button"
                   style={{
                     width: '100%',
                     display: 'inline-flex',
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    padding: '18px 32px',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s ease',
+                    cursor: 'pointer',
+                    border: 'none',
+                    fontFamily: 'var(--font-body)'
                   }}
+                >
+                  Start now
+                </button>
+                
+                {/* Hidden Stripe Button for after auth */}
+                <StripeCheckout 
+                  plan="premium"
+                  buttonText="Processing..."
+                  className="hidden-stripe-button"
+                  style={{ display: 'none' }}
                 />
               </div>
 
@@ -493,6 +530,14 @@ const ScreenTimeJourneyProductPage = () => {
           />
         </div>
       )}
+
+      {/* Auth Modal */}
+      <AuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        defaultMode="signup"
+        onAuthSuccess={handleAuthSuccess}
+      />
 
       <Footer />
     </main>

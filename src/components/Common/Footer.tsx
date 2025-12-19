@@ -51,9 +51,12 @@ const Footer: React.FC = () => {
       {/* Footer Bottom - Policies */}
       <div className="container footer-bottom">
         {/* Currency Selector */}
-        <div className="footer-currency-section" style={{ display: 'flex', justifyContent: 'center', paddingBottom: '1rem', borderBottom: '1px solid #e5e5e5', marginBottom: '1rem' }}>
+        <div className="footer-currency-section" style={{ display: 'flex', justifyContent: 'flex-start', paddingBottom: '1rem', marginBottom: '1rem' }}>
           <FooterCurrencySelector />
         </div>
+        
+        {/* Separator Line */}
+        <div style={{ height: '1px', backgroundColor: '#f5f5f5', marginBottom: '1rem' }}></div>
         
         <div className="footer-policies">
           <span>2025, SCREENTIMEJOURNEY ©</span>
