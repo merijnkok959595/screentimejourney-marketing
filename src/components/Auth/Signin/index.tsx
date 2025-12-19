@@ -219,8 +219,8 @@ const Signin = () => {
                   fontSize: '14px',
                   transition: 'color 0.2s ease'
                 }}
-                onMouseEnter={(e) => e.target.style.color = 'var(--brand-text)'}
-                onMouseLeave={(e) => e.target.style.color = '#6b7280'}
+                onMouseEnter={(e) => (e.target as HTMLAnchorElement).style.color = 'var(--brand-text)'}
+                onMouseLeave={(e) => (e.target as HTMLAnchorElement).style.color = '#6b7280'}
               >
                 Forgot your password?
               </a>
