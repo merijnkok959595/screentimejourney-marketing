@@ -6,7 +6,7 @@ import MilestonesPreview from '@/components/Common/MilestonesPreview';
 import LeaderboardPreview from '@/components/Common/LeaderboardPreview';
 import StripeCheckout from '@/components/Stripe/StripeCheckout';
 import PriceDisplay from '@/components/Common/PriceDisplay';
-// Payment icons now shown in footer
+import PaymentIconsMinimal from '@/components/Common/PaymentIconsMinimal';
 
 const ScreenTimeJourneyProductPage = () => {
   const [expandedQuickFaq, setExpandedQuickFaq] = useState<number | null>(null);
@@ -228,6 +228,16 @@ const ScreenTimeJourneyProductPage = () => {
                 )}
               </div>
 
+              {/* Payment Icons - Directly under Start Now button */}
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                marginBottom: '40px',
+                marginTop: '20px' 
+              }}>
+                <PaymentIconsMinimal />
+              </div>
 
               {/* Quick FAQ Section */}
               <div style={{ marginBottom: '30px' }}>

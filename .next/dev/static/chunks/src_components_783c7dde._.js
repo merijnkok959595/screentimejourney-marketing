@@ -1666,15 +1666,15 @@ const PaymentIconsMinimal = ({ className = '' })=>{
         className: `payment-icons-minimal flex items-center gap-1.5 ${className}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-white border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-white border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                    width: "24",
-                    height: "8",
-                    viewBox: "0 0 24 8",
+                    width: "20",
+                    height: "7",
+                    viewBox: "0 0 20 7",
                     fill: "none",
                     xmlns: "http://www.w3.org/2000/svg",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                        d: "M10.1 1L8.9 7h1.4l1.2-6H10.1zM16.4 1c-.4 0-.7.2-.8.5L13.3 7h1.5l.6-1.7h1.9l.2 1.7h1.3L17.8 1h-1.4zm.2 3.4h-1.2l1-2.6.2 2.6zM6.1 1L4.7 5.2 4.4 3.6c-.2-.8-.9-1.7-1.7-2.1L4.1 7h1.6l2.4-6H6.1zM2.4 1H0l0 .2c1.7.4 2.9 1.5 3.3 2.8L2.4 1z",
+                        d: "M8.4 0.8L7.4 5.8h1.2l1-5H8.4zM13.7 0.8c-.3 0-.6.2-.7.4L11.1 5.8h1.2l.5-1.4h1.6l.2 1.4h1.1L14.9 0.8h-1.2zm.2 2.8h-1l.8-2.2.2 2.2zM5.1 0.8L3.9 4.3 3.7 3c-.2-.7-.7-1.4-1.4-1.7L3.4 5.8h1.3l2-5H5.1zM2 0.8H0l0 .2c1.4.3 2.4 1.2 2.7 2.3L2 0.8z",
                         fill: "#1A1F71"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
@@ -1692,19 +1692,19 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-white border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-white border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex items-center gap-0",
+                    className: "flex items-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-3 h-3 rounded-full bg-red-500"
+                            className: "w-2.5 h-2.5 rounded-full bg-red-500"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
                             lineNumber: 17,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-3 h-3 rounded-full bg-yellow-500 -ml-1.5"
+                            className: "w-2.5 h-2.5 rounded-full bg-yellow-500 -ml-1"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
                             lineNumber: 18,
@@ -1722,7 +1722,7 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-blue-600 border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-blue-600 border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "text-white font-bold text-xs",
                     children: "AE"
@@ -1737,7 +1737,7 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-orange-500 border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-orange-500 border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "text-white font-bold text-xs",
                     children: "D"
@@ -1752,15 +1752,15 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-black border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-black border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                    width: "16",
-                    height: "6",
-                    viewBox: "0 0 16 6",
+                    width: "14",
+                    height: "5",
+                    viewBox: "0 0 14 5",
                     fill: "white",
                     xmlns: "http://www.w3.org/2000/svg",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                        d: "M3.2 2.4c-.3.4-.8.6-1.3.6-.1-.5.2-1 .5-1.3.3-.3.8-.6 1.2-.6.1.5-.1 1-.4 1.3zm.5.8c-.7-.1-1.3.4-1.6.4-.3 0-.8-.4-1.4-.4-.7 0-1.4.4-1.8 1-.8 1.3-.2 3.2.5 4.3.4.5.8 1.1 1.3 1.1.5 0 .7-.3 1.4-.3.7 0 .9.3 1.4.3.6 0 .9-.5 1.2-.9.4-.6.5-1.1.5-1.2v0c-1-.4-1-1.6-.1-1.9-.5-.6-1.2-.7-1.4-.7z"
+                        d: "M2.8 2c-.3.3-.7.5-1.1.5-.1-.4.2-.8.4-1.1.3-.3.7-.5 1-.5.1.4-.1.8-.3 1.1zm.4.7c-.6-.1-1.1.3-1.3.3-.3 0-.7-.3-1.2-.3-.6 0-1.2.3-1.5.8-.7 1.1-.2 2.7.4 3.6.3.4.7.9 1.1.9.4 0 .6-.3 1.2-.3.6 0 .8.3 1.2.3.5 0 .8-.4 1-.8.3-.5.4-.9.4-1v0c-.8-.3-.8-1.3-.1-1.6-.4-.5-1-.6-1.2-.6z"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
                         lineNumber: 35,
@@ -1777,16 +1777,16 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-white border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-white border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                    width: "16",
-                    height: "6",
-                    viewBox: "0 0 16 6",
+                    width: "14",
+                    height: "5",
+                    viewBox: "0 0 14 5",
                     fill: "none",
                     xmlns: "http://www.w3.org/2000/svg",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M7 2.4v1.2h2c-.1.4-.3.7-.6.9l1 .8c.6-.5.9-1.3.9-2.2 0-.2 0-.5-.1-.7H7z",
+                            d: "M6 2v1h1.7c-.1.3-.3.6-.5.8l.9.7c.5-.4.8-1.1.8-1.8 0-.2 0-.4-.1-.6H6z",
                             fill: "#4285F4"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
@@ -1794,7 +1794,7 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M3.9 3.4l-.2.2-.8.5c.5 1 1.4 1.7 2.6 1.7.8 0 1.5-.3 2-.8l-1-.8c-.3.2-.7.3-1 .3-.8 0-1.5-.5-1.6-1.1z",
+                            d: "M3.3 2.8l-.2.2-.7.4c.4.8 1.2 1.4 2.2 1.4.7 0 1.3-.3 1.7-.7l-.9-.7c-.3.2-.6.3-.8.3-.7 0-1.3-.4-1.3-.9z",
                             fill: "#34A853"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
@@ -1802,7 +1802,7 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M2.9 1.8c-.1.2-.2.5-.2.7s.1.5.2.7l1.2-.7c0-.1-.1-.3-.1-.4s0-.3.1-.4L2.9 1.8z",
+                            d: "M2.5 1.5c-.1.2-.2.4-.2.6s.1.4.2.6l1-.6c0-.1-.1-.3-.1-.3s0-.3.1-.3L2.5 1.5z",
                             fill: "#FBBC05"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
@@ -1810,7 +1810,7 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M5.5 1.4c.5 0 .9.1 1.2.4l.9-.9C7 .5 6.3.2 5.5.2c-1.2 0-2.2.6-2.8 1.4l1.2.7c.3-.7.9-1.1 1.6-1.1z",
+                            d: "M4.7 1.2c.4 0 .8.1 1 .3l.8-.8C6 .4 5.4.2 4.7.2c-1 0-1.9.5-2.4 1.2l1 .6c.3-.6.8-.9 1.4-.9z",
                             fill: "#EA4335"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
@@ -1829,7 +1829,7 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-blue-500 border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-blue-500 border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "text-white font-bold text-xs",
                     children: "PP"
@@ -1844,17 +1844,17 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-gray-700 border border-gray-200 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-gray-700 border border-gray-200 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                    width: "14",
-                    height: "10",
-                    viewBox: "0 0 14 10",
+                    width: "12",
+                    height: "8",
+                    viewBox: "0 0 12 8",
                     fill: "white",
                     xmlns: "http://www.w3.org/2000/svg",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
-                            width: "14",
-                            height: "10",
+                            width: "12",
+                            height: "8",
                             rx: "1",
                             fill: "currentColor"
                         }, void 0, false, {
@@ -1864,9 +1864,9 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
                             x: "1",
-                            y: "3",
-                            width: "12",
-                            height: "1",
+                            y: "2.5",
+                            width: "10",
+                            height: "0.8",
                             fill: "white"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
@@ -1875,9 +1875,9 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
                             x: "1",
-                            y: "6",
-                            width: "4",
-                            height: "1",
+                            y: "5",
+                            width: "3",
+                            height: "0.8",
                             fill: "white"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
@@ -1896,23 +1896,23 @@ const PaymentIconsMinimal = ({ className = '' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "payment-icon bg-green-500 border border-green-400 rounded px-2 py-1 h-6 flex items-center justify-center min-w-[36px]",
+                className: "payment-icon bg-green-500 border border-green-400 rounded px-2 py-1.5 h-7 flex items-center justify-center min-w-[40px] shadow-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                    width: "10",
-                    height: "10",
-                    viewBox: "0 0 10 10",
+                    width: "8",
+                    height: "8",
+                    viewBox: "0 0 8 8",
                     fill: "white",
                     xmlns: "http://www.w3.org/2000/svg",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M5 0L2 1v2.5c0 1.9 1.3 3.7 3 4.5 1.7-.8 3-2.6 3-4.5V1L5 0z"
+                            d: "M4 0L1.6 0.8v2c0 1.5 1 3 2.4 3.6 1.4-.6 2.4-2.1 2.4-3.6v-2L4 0z"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
                             lineNumber: 66,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M4 6L3 5l.7-.7L4 4.6 6.3 2l.7.7L4 6z",
+                            d: "M3.2 4.8L2.4 4l.6-.6L3.2 3.7 5.2 1.6l.6.6L3.2 4.8z",
                             fill: "#10B981"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PaymentIconsMinimal.tsx",
