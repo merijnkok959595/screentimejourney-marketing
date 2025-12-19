@@ -480,7 +480,7 @@ const ProductPageContent = () => {
         <div 
           style={{
             position: 'fixed',
-            bottom: '80px',
+            bottom: '30px',
             left: '50%',
             transform: 'translateX(-50%)',
             background: 'var(--brand-primary)',
@@ -493,7 +493,7 @@ const ProductPageContent = () => {
             alignItems: 'center',
             gap: '16px',
             maxWidth: '95vw',
-            minWidth: '400px'
+            minWidth: '320px'
           }}
         >
           {/* Product Avatar */}

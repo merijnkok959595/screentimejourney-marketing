@@ -3918,8 +3918,12 @@ header[class*="bg-transparent"] .header-nav a {
   .default-header .mobile-menu-actions .btn-outline-primary {
     width: 100%;
     text-align: center;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
+    height: 48px;
+    line-height: 1;
   }
 
   /* Adjust dropdown position when header is scrolled (smaller height) */
