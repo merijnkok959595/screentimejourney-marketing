@@ -33,9 +33,18 @@ const Signin = () => {
     }
   };
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = async () => {
     try {
-      Auth.federatedSignIn({provider: 'Google'});
+      // Use the window location to redirect to Cognito hosted UI for Google
+      const cognitoDomain = process.env.NEXT_PUBLIC_OAUTH_DOMAIN;
+      const clientId = process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID;
+      const redirectUri = encodeURIComponent(process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || window.location.origin + '/product/screentimejourney?checkout=true');
+      
+      if (cognitoDomain && clientId) {
+        window.location.href = `https://${cognitoDomain}/oauth2/authorize?identity_provider=Google&redirect_uri=${redirectUri}&response_type=CODE&client_id=${clientId}&scope=email+openid+profile`;
+      } else {
+        toast.error('Google sign in not configured yet');
+      }
     } catch (error) {
       toast.error('Google sign in not configured yet');
     }

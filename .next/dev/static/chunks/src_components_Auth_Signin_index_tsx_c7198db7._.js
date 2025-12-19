@@ -6,6 +6,7 @@ __turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -43,11 +44,17 @@ const Signin = ()=>{
             setLoading(false);
         }
     };
-    const handleGoogleSignIn = ()=>{
+    const handleGoogleSignIn = async ()=>{
         try {
-            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$aws$2d$amplify$2f$auth$2f$lib$2d$esm$2f$Auth$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Auth"].federatedSignIn({
-                provider: 'Google'
-            });
+            // Use the window location to redirect to Cognito hosted UI for Google
+            const cognitoDomain = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_OAUTH_DOMAIN;
+            const clientId = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_USER_POOL_CLIENT_ID;
+            const redirectUri = encodeURIComponent(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || window.location.origin + '/product/screentimejourney?checkout=true');
+            if (cognitoDomain && clientId) {
+                window.location.href = `https://${cognitoDomain}/oauth2/authorize?identity_provider=Google&redirect_uri=${redirectUri}&response_type=CODE&client_id=${clientId}&scope=email+openid+profile`;
+            } else {
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error('Google sign in not configured yet');
+            }
         } catch (error) {
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error('Google sign in not configured yet');
         }
@@ -66,12 +73,12 @@ const Signin = ()=>{
                             children: "Sign In to Your Account"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                            lineNumber: 49,
+                            lineNumber: 58,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                        lineNumber: 48,
+                        lineNumber: 57,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -87,7 +94,7 @@ const Signin = ()=>{
                                             children: "Email"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 57,
+                                            lineNumber: 66,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -101,13 +108,13 @@ const Signin = ()=>{
                                             required: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 60,
+                                            lineNumber: 69,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 65,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -119,7 +126,7 @@ const Signin = ()=>{
                                             children: "Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 73,
+                                            lineNumber: 82,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -134,13 +141,13 @@ const Signin = ()=>{
                                             required: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 76,
+                                            lineNumber: 85,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 81,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -150,7 +157,7 @@ const Signin = ()=>{
                                     children: loading ? 'Signing in...' : 'Sign in and continue to checkout'
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 98,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -159,7 +166,7 @@ const Signin = ()=>{
                                     children: "Forgot your password?"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                    lineNumber: 97,
+                                    lineNumber: 106,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -169,7 +176,7 @@ const Signin = ()=>{
                                             className: "block absolute -z-1 left-0 top-1/2 h-px w-full bg-gray-3"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 105,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -177,13 +184,13 @@ const Signin = ()=>{
                                             children: "Or"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 106,
+                                            lineNumber: 115,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                    lineNumber: 104,
+                                    lineNumber: 113,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -213,12 +220,12 @@ const Signin = ()=>{
                                                                 fill: "white"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                                lineNumber: 130,
+                                                                lineNumber: 139,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                            lineNumber: 122,
+                                                            lineNumber: 131,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
@@ -229,7 +236,7 @@ const Signin = ()=>{
                                                                     fill: "#4285F4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                                    lineNumber: 133,
+                                                                    lineNumber: 142,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -237,7 +244,7 @@ const Signin = ()=>{
                                                                     fill: "#34A853"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                                    lineNumber: 137,
+                                                                    lineNumber: 146,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -245,7 +252,7 @@ const Signin = ()=>{
                                                                     fill: "#FBBC05"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                                    lineNumber: 141,
+                                                                    lineNumber: 150,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -253,19 +260,19 @@ const Signin = ()=>{
                                                                     fill: "#EB4335"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                                    lineNumber: 145,
+                                                                    lineNumber: 154,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                            lineNumber: 132,
+                                                            lineNumber: 141,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                    lineNumber: 121,
+                                                    lineNumber: 130,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
@@ -277,30 +284,30 @@ const Signin = ()=>{
                                                             fill: "white"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                            lineNumber: 153,
+                                                            lineNumber: 162,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                        lineNumber: 152,
+                                                        lineNumber: 161,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                                    lineNumber: 151,
+                                                    lineNumber: 160,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 114,
+                                            lineNumber: 123,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         "Sign In with Google"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                    lineNumber: 109,
+                                    lineNumber: 118,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -313,40 +320,40 @@ const Signin = ()=>{
                                             children: "Sign Up Now!"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                            lineNumber: 162,
+                                            lineNumber: 171,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                                    lineNumber: 160,
+                                    lineNumber: 169,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                            lineNumber: 55,
+                            lineNumber: 64,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                        lineNumber: 54,
+                        lineNumber: 63,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Auth/Signin/index.tsx",
-                lineNumber: 47,
+                lineNumber: 56,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/components/Auth/Signin/index.tsx",
-            lineNumber: 46,
+            lineNumber: 55,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/components/Auth/Signin/index.tsx",
-        lineNumber: 45,
+        lineNumber: 54,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
