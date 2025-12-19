@@ -160,3 +160,4 @@ Events: checkout.session.completed, customer.subscription.updated, customer.subs
 - **Total**: ~45 mins to complete integration
 
 **What's the current status of your marketing site redeploy - is it working now?** 🔍
+
