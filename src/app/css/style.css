@@ -3312,7 +3312,7 @@ header[class*="bg-transparent"] .header-nav a {
   
   /* Ensure transparent header maintains positioning for scroll animation */
   .header-transparent {
-    position: fixed !important;
+    position: sticky !important;
     top: 42px !important;
     left: 0 !important;
     width: 100% !important;
@@ -3664,14 +3664,19 @@ header[class*="bg-transparent"] .header-nav a {
 
 .default-header {
   background: #f9f9f9;
-  position: sticky;
-  top: 42px;
-  z-index: 50;
+  position: sticky !important;
+  top: 42px !important;
+  z-index: 50 !important;
   border-bottom: 1px solid #e5e5e5;
   padding: 0;
   transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), min-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   height: 95px;
   min-height: 95px;
+  width: 100% !important;
+  left: 0 !important;
+  /* Force sticky on mobile Safari */
+  -webkit-position: sticky !important;
+  -webkit-top: 42px !important;
 }
 
 .default-header.scrolled {
