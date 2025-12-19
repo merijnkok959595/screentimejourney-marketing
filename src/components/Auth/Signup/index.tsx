@@ -17,9 +17,10 @@ const Signup = () => {
 
   // Check Cognito configuration on component mount
   useEffect(() => {
+    console.log('🔧 Signup: Checking Cognito config...', COGNITO_CONFIG);
     if (!COGNITO_CONFIG.isConfigured) {
-      console.error('Cognito not configured properly');
-      toast.error('Authentication not configured properly');
+      console.error('❌ Cognito not configured properly. Missing variables:', COGNITO_CONFIG.missingVariables);
+      toast.error(`Authentication not configured. Missing: ${COGNITO_CONFIG.missingVariables.join(', ')}`);
     }
   }, []);
 
