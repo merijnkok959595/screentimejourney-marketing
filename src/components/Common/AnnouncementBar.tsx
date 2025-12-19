@@ -151,6 +151,7 @@ const AnnouncementBar: React.FC<AnnouncementBarProps> = ({
   return (
     <div
       className="announcement-bar bg-[#2E0456] h-[42px] flex items-center text-white sticky top-0 z-[100] transition-all duration-300"
+      style={{ position: 'sticky', top: 0, zIndex: 100 }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

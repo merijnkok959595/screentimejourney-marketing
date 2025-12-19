@@ -206,6 +206,6 @@ const Signin = () => {
         </div>
       </section>
     );
-  };
+};
 
 export default Signin;

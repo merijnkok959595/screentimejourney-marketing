@@ -317,6 +317,10 @@ p, span, div {
   font-size: 16px; /* Consistent with all mobile buttons */
   font-weight: 600;
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .mobile-menu-header {

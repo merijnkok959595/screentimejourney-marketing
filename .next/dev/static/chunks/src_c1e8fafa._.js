@@ -4213,6 +4213,11 @@ const AnnouncementBar = ({ announcements = [
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "announcement-bar bg-[#2E0456] h-[42px] flex items-center text-white sticky top-0 z-[100] transition-all duration-300",
+        style: {
+            position: 'sticky',
+            top: 0,
+            zIndex: 100
+        },
         onMouseEnter: handleMouseEnter,
         onMouseLeave: handleMouseLeave,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4237,7 +4242,7 @@ const AnnouncementBar = ({ announcements = [
                                                     children: social.icon
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                                    lineNumber: 170,
+                                                    lineNumber: 171,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4245,28 +4250,28 @@ const AnnouncementBar = ({ announcements = [
                                                     children: social.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                                    lineNumber: 173,
+                                                    lineNumber: 174,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                            lineNumber: 165,
+                                            lineNumber: 166,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, index, false, {
                                         fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                        lineNumber: 164,
+                                        lineNumber: 165,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                lineNumber: 162,
+                                lineNumber: 163,
                                 columnNumber: 20
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                            lineNumber: 161,
+                            lineNumber: 162,
                             columnNumber: 18
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4284,12 +4289,12 @@ const AnnouncementBar = ({ announcements = [
                                             children: currentAnnouncement.text
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                            lineNumber: 191,
+                                            lineNumber: 192,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 188,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4305,18 +4310,18 @@ const AnnouncementBar = ({ announcements = [
                                             clipRule: "evenodd"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                            lineNumber: 200,
+                                            lineNumber: 201,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                        lineNumber: 193,
+                                        lineNumber: 194,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                lineNumber: 183,
+                                lineNumber: 184,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "announcement-message text-base font-normal tracking-[1px]",
@@ -4327,35 +4332,35 @@ const AnnouncementBar = ({ announcements = [
                                     children: currentAnnouncement.text
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                    lineNumber: 213,
+                                    lineNumber: 214,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                lineNumber: 209,
+                                lineNumber: 210,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                            lineNumber: 181,
+                            lineNumber: 182,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "announcement-right hidden lg:flex items-center justify-end",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Common$2f$GlobalCurrencySelector$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                lineNumber: 220,
+                                lineNumber: 221,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                            lineNumber: 219,
+                            lineNumber: 220,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                    lineNumber: 159,
+                    lineNumber: 160,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4373,12 +4378,12 @@ const AnnouncementBar = ({ announcements = [
                                     children: currentAnnouncement.text
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 236,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                lineNumber: 231,
+                                lineNumber: 232,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4394,18 +4399,18 @@ const AnnouncementBar = ({ announcements = [
                                     clipRule: "evenodd"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                    lineNumber: 244,
+                                    lineNumber: 245,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                                lineNumber: 237,
+                                lineNumber: 238,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                        lineNumber: 227,
+                        lineNumber: 228,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "announcement-message text-xs font-normal tracking-[0.5px]",
@@ -4416,23 +4421,23 @@ const AnnouncementBar = ({ announcements = [
                             children: currentAnnouncement.text
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                            lineNumber: 257,
+                            lineNumber: 258,
                             columnNumber: 15
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                        lineNumber: 253,
+                        lineNumber: 254,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-                    lineNumber: 225,
+                    lineNumber: 226,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/Common/AnnouncementBar.tsx",
-            lineNumber: 157,
+            lineNumber: 158,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {

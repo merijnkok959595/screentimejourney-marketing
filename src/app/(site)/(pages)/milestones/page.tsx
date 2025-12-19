@@ -24,8 +24,8 @@ const MilestonesPage = () => {
 
       {/* Full Milestones Component */}
       <Milestones 
-        maleLabel="Men's Journey"
-        femaleLabel="Women's Journey"
+        maleLabel="Men"
+        femaleLabel="Woman"
       />
 
       <Footer />
