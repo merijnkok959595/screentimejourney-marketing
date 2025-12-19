@@ -54,9 +54,8 @@ const AuthModal: React.FC<AuthModalProps> = ({
       await Auth.signUp({
         username: email,
         password,
-        options: {
-          userAttributes: { email },
-          autoSignIn: false
+        attributes: {
+          email: email
         }
       });
       
