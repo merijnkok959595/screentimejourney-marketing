@@ -1,9 +1,10 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Auth } from 'aws-amplify';
 
-export default function AuthCallback() {
+// Component that handles search params
+const CallbackHandler = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [status, setStatus] = useState('Processing authentication...');
@@ -86,5 +87,50 @@ export default function AuthCallback() {
         </p>
       </div>
     </div>
+  );
+};
+
+export default function AuthCallback() {
+  return (
+    <Suspense fallback={
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f9f9f9'
+      }}>
+        <div style={{
+          textAlign: 'center',
+          padding: '2rem',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+        }}>
+          <div style={{
+            fontSize: '2rem',
+            marginBottom: '1rem'
+          }}>
+            🔐
+          </div>
+          <h2 style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: '1.5rem',
+            marginBottom: '1rem',
+            color: 'var(--brand-text)'
+          }}>
+            Loading Authentication
+          </h2>
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            color: 'var(--brand-text)'
+          }}>
+            Please wait...
+          </p>
+        </div>
+      </div>
+    }>
+      <CallbackHandler />
+    </Suspense>
   );
 }
