@@ -1,10 +1,11 @@
 'use client';
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Footer from '@/components/Common/Footer';
+import { COGNITO_CONFIG } from '@/lib/cognito';
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -13,6 +14,14 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const router = useRouter();
+
+  // Check Cognito configuration on component mount
+  useEffect(() => {
+    if (!COGNITO_CONFIG.isConfigured) {
+      console.error('Cognito not configured properly');
+      toast.error('Authentication not configured properly');
+    }
+  }, []);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,9 +35,16 @@ const Signup = () => {
       return;
     }
 
+    if (!COGNITO_CONFIG.isConfigured) {
+      toast.error('Authentication service not configured');
+      return;
+    }
+
     try {
       setLoading(true);
-      await Auth.signUp({
+      console.log('Attempting sign up for:', email);
+      
+      const result = await Auth.signUp({
         username: email,
         password,
         attributes: {
@@ -37,6 +53,7 @@ const Signup = () => {
         }
       });
       
+      console.log('Sign up result:', result);
       toast.success('Account created successfully! Please check your email for verification.');
       
       // Redirect to signin page
@@ -45,7 +62,30 @@ const Signup = () => {
       }, 1500);
       
     } catch (error: any) {
-      toast.error(error.message || 'Sign up failed');
+      console.error('Sign up error:', error);
+      let errorMessage = 'Sign up failed';
+      
+      // Handle specific Cognito errors
+      if (error.code) {
+        switch (error.code) {
+          case 'UsernameExistsException':
+            errorMessage = 'An account with this email already exists';
+            break;
+          case 'InvalidPasswordException':
+            errorMessage = 'Password does not meet requirements (min 8 chars, uppercase, lowercase, number, special char)';
+            break;
+          case 'InvalidParameterException':
+            errorMessage = 'Invalid email address format';
+            break;
+          case 'TooManyRequestsException':
+            errorMessage = 'Too many attempts. Please try again later';
+            break;
+          default:
+            errorMessage = error.message || 'Sign up failed';
+        }
+      }
+      
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -58,13 +98,19 @@ const Signup = () => {
       const clientId = process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID;
       const redirectUri = encodeURIComponent(process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || window.location.origin + '/product/screentimejourney?checkout=true');
       
+      console.log('Google OAuth Config:', { cognitoDomain, clientId, redirectUri });
+      
       if (cognitoDomain && clientId) {
-        window.location.href = `https://${cognitoDomain}/oauth2/authorize?identity_provider=Google&redirect_uri=${redirectUri}&response_type=CODE&client_id=${clientId}&scope=email+openid+profile`;
+        const oauthUrl = `https://${cognitoDomain}/oauth2/authorize?identity_provider=Google&redirect_uri=${redirectUri}&response_type=CODE&client_id=${clientId}&scope=email+openid+profile`;
+        console.log('Redirecting to:', oauthUrl);
+        window.location.href = oauthUrl;
       } else {
-        toast.error('Google sign up not configured yet');
+        console.error('Missing OAuth config:', { cognitoDomain, clientId });
+        toast.error('Google sign up configuration missing');
       }
     } catch (error) {
-      toast.error('Google sign up not configured yet');
+      console.error('Google sign up error:', error);
+      toast.error('Google sign up failed');
     }
   };
 

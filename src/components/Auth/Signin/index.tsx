@@ -1,10 +1,11 @@
 'use client';
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Footer from '@/components/Common/Footer';
+import { COGNITO_CONFIG } from '@/lib/cognito';
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -12,13 +13,32 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
+  // Check Cognito configuration on component mount
+  useEffect(() => {
+    if (!COGNITO_CONFIG.isConfigured) {
+      console.error('Cognito not configured properly');
+      toast.error('Authentication not configured properly');
+    }
+  }, []);
+
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) return;
+    if (!email || !password) {
+      toast.error('Please enter both email and password');
+      return;
+    }
+
+    if (!COGNITO_CONFIG.isConfigured) {
+      toast.error('Authentication service not configured');
+      return;
+    }
 
     try {
       setLoading(true);
-      await Auth.signIn(email, password);
+      console.log('Attempting sign in with:', email);
+      
+      const result = await Auth.signIn(email, password);
+      console.log('Sign in result:', result);
       
       toast.success('Signed in successfully! Redirecting to checkout...');
       
@@ -28,7 +48,30 @@ const Signin = () => {
       }, 1000);
       
     } catch (error: any) {
-      toast.error(error.message || 'Sign in failed');
+      console.error('Sign in error:', error);
+      let errorMessage = 'Sign in failed';
+      
+      // Handle specific Cognito errors
+      if (error.code) {
+        switch (error.code) {
+          case 'UserNotConfirmedException':
+            errorMessage = 'Please check your email and confirm your account';
+            break;
+          case 'NotAuthorizedException':
+            errorMessage = 'Incorrect email or password';
+            break;
+          case 'UserNotFoundException':
+            errorMessage = 'User not found. Please sign up first';
+            break;
+          case 'TooManyRequestsException':
+            errorMessage = 'Too many attempts. Please try again later';
+            break;
+          default:
+            errorMessage = error.message || 'Sign in failed';
+        }
+      }
+      
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -41,13 +84,19 @@ const Signin = () => {
       const clientId = process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID;
       const redirectUri = encodeURIComponent(process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || window.location.origin + '/product/screentimejourney?checkout=true');
       
+      console.log('Google OAuth Config:', { cognitoDomain, clientId, redirectUri });
+      
       if (cognitoDomain && clientId) {
-        window.location.href = `https://${cognitoDomain}/oauth2/authorize?identity_provider=Google&redirect_uri=${redirectUri}&response_type=CODE&client_id=${clientId}&scope=email+openid+profile`;
+        const oauthUrl = `https://${cognitoDomain}/oauth2/authorize?identity_provider=Google&redirect_uri=${redirectUri}&response_type=CODE&client_id=${clientId}&scope=email+openid+profile`;
+        console.log('Redirecting to:', oauthUrl);
+        window.location.href = oauthUrl;
       } else {
-        toast.error('Google sign in not configured yet');
+        console.error('Missing OAuth config:', { cognitoDomain, clientId });
+        toast.error('Google sign in configuration missing');
       }
     } catch (error) {
-      toast.error('Google sign in not configured yet');
+      console.error('Google sign in error:', error);
+      toast.error('Google sign in failed');
     }
   };
 
