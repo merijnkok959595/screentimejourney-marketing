@@ -530,9 +530,8 @@ const ProductPageContent = () => {
           </div>
 
           {/* Start Now Button */}
-          <StripeCheckout 
-            plan="premium"
-            buttonText="Start now"
+          <button
+            onClick={handleStartNow}
             className="sticky-cart-button"
             style={{
               background: 'white',
@@ -551,7 +550,9 @@ const ProductPageContent = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}
-          />
+          >
+            Start now
+          </button>
         </div>
       )}
 

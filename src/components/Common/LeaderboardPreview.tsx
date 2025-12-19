@@ -207,7 +207,11 @@ const LeaderboardPreview: React.FC<LeaderboardPreviewProps> = ({
           {/* See leaderboard button */}
           {showButton && (
             <div className="stj-preview-actions">
-              <Link href="/leaderboard" className="button button--primary default">
+              <Link 
+                href="/leaderboard" 
+                className="button button--primary default"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
                 <span className="grid align-items-center">
                   See leaderboard
                 </span>

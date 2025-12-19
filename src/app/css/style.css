@@ -4636,26 +4636,60 @@ header[class*="bg-transparent"] .header-nav a {
   }
   
   .stj-preview-top-cards-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     width: 100%;
     overflow: hidden;
-    padding: 0 40px;
+    padding: 0 20px;
   }
   
   .stj-preview-top-card {
-    padding: 1rem;
+    padding: 1.25rem;
     min-width: 0;
     box-sizing: border-box;
     overflow: hidden;
     word-wrap: break-word;
     min-height: auto;
-    display: block;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 0.5rem;
   }
   
   .stj-card-medal {
-    font-size: 2.5rem;
-    margin-bottom: 4px;
+    font-size: 3rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .stj-card-username {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    flex-grow: 1;
+  }
+  
+  .stj-card-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+    margin-left: auto;
+  }
+  
+  .stj-card-days-number,
+  .stj-card-progress-percent {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  .stj-card-days-label,
+  .stj-card-progress-label {
+    font-size: 0.8rem;
+    opacity: 0.7;
   }
   
   .stj-card-username {
