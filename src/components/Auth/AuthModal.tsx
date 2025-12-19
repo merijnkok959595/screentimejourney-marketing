@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { signIn, signUp, confirmSignUp, resetPassword, confirmResetPassword } from 'aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import toast from 'react-hot-toast';
 
 interface AuthModalProps {
@@ -30,7 +30,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await signIn({ username: email, password });
+      await Auth.signIn(email, password);
       
       toast.success('Signed in successfully!');
       onAuthSuccess?.();
@@ -51,7 +51,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await signUp({
+      await Auth.signUp({
         username: email,
         password,
         options: {
@@ -75,7 +75,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await confirmSignUp({ username: email, confirmationCode: verificationCode });
+      await Auth.confirmSignUp(email, verificationCode);
       
       toast.success('Account verified! You can now sign in.');
       setMode('signin');
@@ -93,7 +93,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await resetPassword({ username: email });
+      await Auth.forgotPassword(email);
       
       setMode('reset');
       toast.success('Reset code sent to your email');
@@ -110,11 +110,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await confirmResetPassword({
-        username: email,
-        confirmationCode: verificationCode,
-        newPassword
-      });
+      await Auth.forgotPasswordSubmit(email, verificationCode, newPassword);
       
       toast.success('Password reset successfully!');
       setMode('signin');
