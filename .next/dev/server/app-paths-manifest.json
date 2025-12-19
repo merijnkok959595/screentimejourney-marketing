@@ -1,4 +1,7 @@
 {
+  "/(site)/(pages)/about-me/page": "app/(site)/(pages)/about-me/page.js",
+  "/(site)/(pages)/leaderboard/page": "app/(site)/(pages)/leaderboard/page.js",
+  "/(site)/(pages)/milestones/page": "app/(site)/(pages)/milestones/page.js",
   "/(site)/(pages)/signin/page": "app/(site)/(pages)/signin/page.js",
   "/(site)/page": "app/(site)/page.js",
   "/(site)/product/screentimejourney/page": "app/(site)/product/screentimejourney/page.js",

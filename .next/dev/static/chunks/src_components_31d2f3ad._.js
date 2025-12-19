@@ -163,10 +163,22 @@ const FooterCurrencySelector = ({ className = '' })=>{
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 type: "button",
-                className: `disclosure__button footer-currency-selector flex items-center gap-2 px-4 py-2 border border-[#2E0456] rounded-md bg-[#2E0456] text-white hover:bg-[#3a1a5c] hover:border-[#3a1a5c] transition-all text-sm font-medium ${className}`,
+                className: `disclosure__button footer-currency-selector flex items-center gap-2 px-4 py-2 border-2 border-white rounded-md bg-transparent text-white transition-all duration-300 text-sm font-medium relative overflow-hidden ${className}`,
                 style: {
                     textAlign: 'left',
-                    justifyContent: 'flex-start'
+                    justifyContent: 'flex-start',
+                    background: 'linear-gradient(to right, transparent 100%, white 0%)',
+                    backgroundSize: '200% 100%',
+                    backgroundPosition: '100% 0',
+                    transition: 'all 0.3s ease-out'
+                },
+                onMouseEnter: (e)=>{
+                    e.currentTarget.style.background = 'linear-gradient(to right, white 100%, white 0%)';
+                    e.currentTarget.style.color = '#111827';
+                },
+                onMouseLeave: (e)=>{
+                    e.currentTarget.style.background = 'linear-gradient(to right, transparent 100%, white 0%)';
+                    e.currentTarget.style.color = 'white';
                 },
                 "aria-expanded": isOpen,
                 onClick: ()=>{
@@ -185,12 +197,12 @@ const FooterCurrencySelector = ({ className = '' })=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                            lineNumber: 159,
+                            lineNumber: 174,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                        lineNumber: 158,
+                        lineNumber: 173,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -203,12 +215,12 @@ const FooterCurrencySelector = ({ className = '' })=>{
                             clipRule: "evenodd"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                            lineNumber: 168,
+                            lineNumber: 183,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                        lineNumber: 161,
+                        lineNumber: 176,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
@@ -220,19 +232,19 @@ const FooterCurrencySelector = ({ className = '' })=>{
             isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "disclosure__list-wrapper country-selector fixed bottom-20 left-4 right-4 bg-white rounded-lg shadow-2xl border-2 border-gray-300 max-w-sm max-h-[400px] overflow-hidden",
+                        className: "disclosure__list-wrapper country-selector fixed bottom-20 left-4 right-4 bg-[#2E0456] rounded-lg shadow-2xl border-2 border-purple-300 max-w-sm max-h-[400px] overflow-hidden",
                         style: {
                             zIndex: 99999,
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05)'
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(147, 51, 234, 0.3)'
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "p-3 border-b border-gray-100",
+                                className: "p-3 border-b border-purple-400",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "relative",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                            className: "absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400",
+                                            className: "absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-300",
                                             fill: "none",
                                             viewBox: "0 0 24 24",
                                             stroke: "currentColor",
@@ -243,12 +255,12 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                                 d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                lineNumber: 194,
+                                                lineNumber: 209,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                            lineNumber: 188,
+                                            lineNumber: 203,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -260,18 +272,18 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                             className: "w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all font-medium"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                            lineNumber: 196,
+                                            lineNumber: 211,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                    lineNumber: 187,
+                                    lineNumber: 202,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                lineNumber: 186,
+                                lineNumber: 201,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -285,7 +297,7 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                         children: filteredCountries.map((country)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 className: "disclosure__item",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    className: `w-full text-left disclosure__link grid grid-cols-[auto_1fr_auto] gap-3 px-4 py-2.5 text-sm hover:bg-purple-50 hover:text-purple-900 transition-colors ${selectedCountry.code === country.code ? "bg-purple-100 text-purple-900 font-medium" : "text-gray-900"}`,
+                                                    className: `w-full text-left disclosure__link grid grid-cols-[auto_1fr_auto] gap-3 px-4 py-2.5 text-sm hover:bg-purple-400 hover:text-white transition-colors ${selectedCountry.code === country.code ? "bg-purple-400 text-white font-medium" : "text-white"}`,
                                                     onClick: ()=>handleCountrySelect(country),
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -294,36 +306,36 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                                                 xmlns: "http://www.w3.org/2000/svg",
                                                                 fill: "currentColor",
                                                                 viewBox: "0 0 12 9",
-                                                                className: "w-full h-full text-purple-600",
+                                                                className: "w-full h-full text-white",
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                                                     fillRule: "evenodd",
                                                                     d: "M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L0.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z",
                                                                     clipRule: "evenodd"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                    lineNumber: 230,
+                                                                    lineNumber: 245,
                                                                     columnNumber: 33
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                lineNumber: 229,
+                                                                lineNumber: 244,
                                                                 columnNumber: 31
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                            lineNumber: 224,
+                                                            lineNumber: 239,
                                                             columnNumber: 29
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "country text-gray-900 text-sm font-bold",
+                                                            className: "country text-white text-sm font-bold",
                                                             children: country.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                            lineNumber: 233,
+                                                            lineNumber: 248,
                                                             columnNumber: 29
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "localization-form__currency text-gray-800 text-xs whitespace-nowrap font-semibold",
+                                                            className: "localization-form__currency text-gray-200 text-xs whitespace-nowrap font-semibold",
                                                             children: [
                                                                 country.currency,
                                                                 " ",
@@ -331,26 +343,26 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                            lineNumber: 234,
+                                                            lineNumber: 249,
                                                             columnNumber: 29
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                    lineNumber: 216,
+                                                    lineNumber: 231,
                                                     columnNumber: 27
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, country.code, false, {
                                                 fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                lineNumber: 215,
+                                                lineNumber: 230,
                                                 columnNumber: 25
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                        lineNumber: 213,
+                                        lineNumber: 228,
                                         columnNumber: 21
                                     }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "px-4 py-3 text-gray-900 text-sm text-center bg-gray-100 font-medium",
+                                        className: "px-4 py-3 text-white text-sm text-center bg-purple-400 font-medium",
                                         children: [
                                             'No countries found for "',
                                             searchTerm,
@@ -358,12 +370,12 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                        lineNumber: 242,
+                                        lineNumber: 257,
                                         columnNumber: 21
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                    lineNumber: 211,
+                                    lineNumber: 226,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)) : // Show grouped by region
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -371,11 +383,11 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                     children: Object.entries(groupedCountries).map(([region, countries])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "px-4 py-2 text-gray-900 text-xs font-bold uppercase tracking-wider border-t border-gray-200 first:border-t-0 bg-purple-50",
+                                                    className: "px-4 py-2 text-white text-xs font-bold uppercase tracking-wider border-t border-purple-400 first:border-t-0 bg-purple-400",
                                                     children: region
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                    lineNumber: 252,
+                                                    lineNumber: 267,
                                                     columnNumber: 25
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -384,7 +396,7 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                                     children: countries.map((country)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                             className: "disclosure__item",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                className: `w-full text-left disclosure__link grid grid-cols-[auto_1fr_auto] gap-3 px-4 py-2.5 text-sm hover:bg-purple-50 hover:text-purple-900 transition-colors ${selectedCountry.code === country.code ? "bg-purple-100 text-purple-900 font-bold" : "text-gray-900 hover:font-medium"}`,
+                                                                className: `w-full text-left disclosure__link grid grid-cols-[auto_1fr_auto] gap-3 px-4 py-2.5 text-sm hover:bg-purple-400 hover:text-white transition-colors ${selectedCountry.code === country.code ? "bg-purple-400 text-white font-bold" : "text-white hover:font-medium"}`,
                                                                 onClick: ()=>handleCountrySelect(country),
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -393,36 +405,36 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                                                             xmlns: "http://www.w3.org/2000/svg",
                                                                             fill: "currentColor",
                                                                             viewBox: "0 0 12 9",
-                                                                            className: "w-full h-full text-purple-600",
+                                                                            className: "w-full h-full text-white",
                                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                                                                 fillRule: "evenodd",
                                                                                 d: "M11.35.643a.5.5 0 0 1 .006.707l-6.77 6.886a.5.5 0 0 1-.719-.006L0.638 4.845a.5.5 0 1 1 .724-.69l2.872 3.011 6.41-6.517a.5.5 0 0 1 .707-.006z",
                                                                                 clipRule: "evenodd"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                                lineNumber: 272,
+                                                                                lineNumber: 287,
                                                                                 columnNumber: 35
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                            lineNumber: 271,
+                                                                            lineNumber: 286,
                                                                             columnNumber: 33
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                        lineNumber: 266,
+                                                                        lineNumber: 281,
                                                                         columnNumber: 31
                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "country text-gray-900 text-sm font-bold",
+                                                                        className: "country text-white text-sm font-bold",
                                                                         children: country.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                        lineNumber: 275,
+                                                                        lineNumber: 290,
                                                                         columnNumber: 31
                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "localization-form__currency text-gray-800 text-xs whitespace-nowrap font-semibold",
+                                                                        className: "localization-form__currency text-gray-200 text-xs whitespace-nowrap font-semibold",
                                                                         children: [
                                                                             country.currency,
                                                                             " ",
@@ -430,45 +442,45 @@ const FooterCurrencySelector = ({ className = '' })=>{
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                        lineNumber: 276,
+                                                                        lineNumber: 291,
                                                                         columnNumber: 31
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                                lineNumber: 258,
+                                                                lineNumber: 273,
                                                                 columnNumber: 29
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, country.code, false, {
                                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                            lineNumber: 257,
+                                                            lineNumber: 272,
                                                             columnNumber: 27
                                                         }, ("TURBOPACK compile-time value", void 0)))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                                    lineNumber: 255,
+                                                    lineNumber: 270,
                                                     columnNumber: 23
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, region, true, {
                                             fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                            lineNumber: 251,
+                                            lineNumber: 266,
                                             columnNumber: 21
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                    lineNumber: 249,
+                                    lineNumber: 264,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                                lineNumber: 208,
+                                lineNumber: 223,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                        lineNumber: 178,
+                        lineNumber: 193,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -479,7 +491,7 @@ const FooterCurrencySelector = ({ className = '' })=>{
                         onClick: ()=>setIsOpen(false)
                     }, void 0, false, {
                         fileName: "[project]/src/components/Common/FooterCurrencySelector.tsx",
-                        lineNumber: 289,
+                        lineNumber: 304,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]

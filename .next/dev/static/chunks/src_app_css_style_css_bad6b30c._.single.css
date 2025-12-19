@@ -1788,6 +1788,11 @@ main {
   border-color: rgb(46 4 86 / var(--tw-border-opacity));
 }
 
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .bg-\[\#000000F2\] {
   background-color: #000000f2;
 }
@@ -8077,6 +8082,11 @@ header.bg-transparent .header-nav a, header[class*="bg-transparent"] .header-nav
 .hover\:bg-\[\#3a1a5c\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(58 26 92 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-opacity-95:hover {

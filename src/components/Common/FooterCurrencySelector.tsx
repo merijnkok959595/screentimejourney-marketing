@@ -147,8 +147,23 @@ const FooterCurrencySelector: React.FC<FooterCurrencySelectorProps> = ({
     <div className="disclosure relative" ref={dropdownRef}>
       <button
         type="button"
-        className={`disclosure__button footer-currency-selector flex items-center gap-2 px-4 py-2 border-2 border-white rounded-md bg-transparent text-white hover:bg-white hover:text-gray-900 transition-all text-sm font-medium ${className}`}
-        style={{ textAlign: 'left', justifyContent: 'flex-start' }}
+        className={`disclosure__button footer-currency-selector flex items-center gap-2 px-4 py-2 border-2 border-white rounded-md bg-transparent text-white transition-all duration-300 text-sm font-medium relative overflow-hidden ${className}`}
+        style={{ 
+          textAlign: 'left', 
+          justifyContent: 'flex-start',
+          background: 'linear-gradient(to right, transparent 100%, white 0%)',
+          backgroundSize: '200% 100%',
+          backgroundPosition: '100% 0',
+          transition: 'all 0.3s ease-out'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'linear-gradient(to right, white 100%, white 0%)';
+          e.currentTarget.style.color = '#111827';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'linear-gradient(to right, transparent 100%, white 0%)';
+          e.currentTarget.style.color = 'white';
+        }}
         aria-expanded={isOpen}
         onClick={() => {
           console.log('Footer currency selector clicked, isOpen:', !isOpen);
