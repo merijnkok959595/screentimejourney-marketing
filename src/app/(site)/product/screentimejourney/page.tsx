@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Footer from '@/components/Common/Footer';
 import MilestonesPreview from '@/components/Common/MilestonesPreview';
@@ -8,13 +8,26 @@ import StripeCheckout from '@/components/Stripe/StripeCheckout';
 import PriceDisplay from '@/components/Common/PriceDisplay';
 import PaymentIconsMinimal from '@/components/Common/PaymentIconsMinimal';
 
-const ScreenTimeJourneyProductPage = () => {
+// Component that handles search params
+const SearchParamsHandler = ({ onCheckoutTrigger }: { onCheckoutTrigger: (shouldTrigger: boolean) => void }) => {
+  const searchParams = useSearchParams();
+  
+  useEffect(() => {
+    const shouldCheckout = searchParams?.get('checkout');
+    if (shouldCheckout === 'true') {
+      onCheckoutTrigger(true);
+    }
+  }, [searchParams, onCheckoutTrigger]);
+
+  return null;
+};
+
+const ProductPageContent = () => {
   const [expandedQuickFaq, setExpandedQuickFaq] = useState<number | null>(null);
   const [showStickyCart, setShowStickyCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [triggerCheckout, setTriggerCheckout] = useState(false);
   const mainButtonRef = useRef<HTMLDivElement>(null);
-  const searchParams = useSearchParams();
 
   const toggleQuickFaq = (index: number) => {
     setExpandedQuickFaq(expandedQuickFaq === index ? null : index);
@@ -38,17 +51,16 @@ const ScreenTimeJourneyProductPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Check if user returned from signin and should proceed to checkout
-  useEffect(() => {
-    const shouldCheckout = searchParams?.get('checkout');
-    if (shouldCheckout === 'true') {
+  // Handle checkout trigger from search params
+  const handleCheckoutTrigger = (shouldTrigger: boolean) => {
+    if (shouldTrigger) {
       setShowCheckout(true);
       // Auto-trigger Stripe checkout after a short delay
       setTimeout(() => {
         setTriggerCheckout(true);
       }, 1000);
     }
-  }, [searchParams]);
+  };
 
   const quickFaqs = [
     {
@@ -67,6 +79,11 @@ const ScreenTimeJourneyProductPage = () => {
 
   return (
     <main style={{ background: '#f8f9fa', minHeight: '100vh' }}>
+      {/* Handle search params with Suspense */}
+      <Suspense fallback={null}>
+        <SearchParamsHandler onCheckoutTrigger={handleCheckoutTrigger} />
+      </Suspense>
+      
       {/* Product Section */}
       <div style={{ padding: '40px 0 80px 0' }}>
         <div className="page-width">
@@ -541,6 +558,24 @@ const ScreenTimeJourneyProductPage = () => {
 
       <Footer />
     </main>
+  );
+};
+
+const ScreenTimeJourneyProductPage = () => {
+  return (
+    <Suspense fallback={
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        background: '#f8f9fa'
+      }}>
+        <div style={{ color: '#666', fontSize: '16px' }}>Loading...</div>
+      </div>
+    }>
+      <ProductPageContent />
+    </Suspense>
   );
 };
 
