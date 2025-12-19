@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { getStripe, STRIPE_CONFIG } from '@/lib/stripe';
 import { getStripePriceId, formatPrice, PRODUCT_PRICES, getCurrency } from '@/lib/currency';
 import toast from 'react-hot-toast';
@@ -11,6 +11,7 @@ interface StripeCheckoutProps {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  autoTrigger?: boolean;
 }
 
 const StripeCheckout: React.FC<StripeCheckoutProps> = ({ 
@@ -19,7 +20,8 @@ const StripeCheckout: React.FC<StripeCheckoutProps> = ({
   buttonText = "Start Your Journey Now",
   className = "",
   style = {},
-  children
+  children,
+  autoTrigger = false
 }) => {
   const [loading, setLoading] = useState(false);
   const [currency, setCurrency] = useState('USD');
@@ -67,7 +69,17 @@ const StripeCheckout: React.FC<StripeCheckoutProps> = ({
     };
   }, []);
 
-  const handleCheckout = async () => {
+  // Auto-trigger checkout if autoTrigger is true
+  useEffect(() => {
+    if (autoTrigger && !loading) {
+      const timeoutId = setTimeout(() => {
+        handleCheckout();
+      }, 500);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [autoTrigger, loading, handleCheckout]);
+
+  const handleCheckout = useCallback(async () => {
     if (!STRIPE_CONFIG.isConfigured) {
       toast.error('Payment system is being configured. Please try again in a few minutes.');
       return;
@@ -121,7 +133,7 @@ const StripeCheckout: React.FC<StripeCheckoutProps> = ({
     } finally {
       setLoading(false);
     }
-  };
+  }, [plan, currency, priceId, loading]);
 
   if (children) {
     return (

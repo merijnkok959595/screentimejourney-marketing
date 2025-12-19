@@ -1756,7 +1756,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot
 ;
 ;
 ;
-const StripeCheckout = ({ plan = 'premium', priceId, buttonText = "Start Your Journey Now", className = "", style = {}, children })=>{
+const StripeCheckout = ({ plan = 'premium', priceId, buttonText = "Start Your Journey Now", className = "", style = {}, children, autoTrigger = false })=>{
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [currency, setCurrency] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('USD');
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
@@ -1815,7 +1815,20 @@ const StripeCheckout = ({ plan = 'premium', priceId, buttonText = "Start Your Jo
             window.removeEventListener('countryChange', handleCountryChange);
         };
     }, []);
-    const handleCheckout = async ()=>{
+    // Auto-trigger checkout if autoTrigger is true
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (autoTrigger && !loading) {
+            const timeoutId = setTimeout(()=>{
+                handleCheckout();
+            }, 500);
+            return ()=>clearTimeout(timeoutId);
+        }
+    }, [
+        autoTrigger,
+        loading,
+        handleCheckout
+    ]);
+    const handleCheckout = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async ()=>{
         if (!__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$stripe$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["STRIPE_CONFIG"].isConfigured) {
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].error('Payment system is being configured. Please try again in a few minutes.');
             return;
@@ -1860,7 +1873,12 @@ const StripeCheckout = ({ plan = 'premium', priceId, buttonText = "Start Your Jo
         } finally{
             setLoading(false);
         }
-    };
+    }, [
+        plan,
+        currency,
+        priceId,
+        loading
+    ]);
     if (children) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             onClick: handleCheckout,
@@ -1870,7 +1888,7 @@ const StripeCheckout = ({ plan = 'premium', priceId, buttonText = "Start Your Jo
             children: children
         }, void 0, false, {
             fileName: "[project]/src/components/Stripe/StripeCheckout.tsx",
-            lineNumber: 128,
+            lineNumber: 140,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -1886,7 +1904,7 @@ const StripeCheckout = ({ plan = 'premium', priceId, buttonText = "Start Your Jo
         children: loading ? 'Processing...' : buttonText
     }, void 0, false, {
         fileName: "[project]/src/components/Stripe/StripeCheckout.tsx",
-        lineNumber: 135,
+        lineNumber: 147,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1993,8 +2011,8 @@ const ScreenTimeJourneyProductPage = ()=>{
     const [expandedQuickFaq, setExpandedQuickFaq] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [showStickyCart, setShowStickyCart] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [showCheckout, setShowCheckout] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [triggerCheckout, setTriggerCheckout] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const mainButtonRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const stripeButtonRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])();
     const toggleQuickFaq = (index)=>{
         setExpandedQuickFaq(expandedQuickFaq === index ? null : index);
@@ -2019,11 +2037,9 @@ const ScreenTimeJourneyProductPage = ()=>{
         const shouldCheckout = searchParams?.get('checkout');
         if (shouldCheckout === 'true') {
             setShowCheckout(true);
-            // Auto-trigger Stripe checkout
+            // Auto-trigger Stripe checkout after a short delay
             setTimeout(()=>{
-                if (stripeButtonRef.current) {
-                    stripeButtonRef.current.click();
-                }
+                setTriggerCheckout(true);
             }, 1000);
         }
     }, [
@@ -2079,17 +2095,17 @@ const ScreenTimeJourneyProductPage = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 77,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                    lineNumber: 78,
+                                    lineNumber: 76,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                lineNumber: 77,
+                                lineNumber: 75,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2108,7 +2124,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                         children: "Screentimejourney"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                        lineNumber: 101,
+                                        lineNumber: 99,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2128,12 +2144,12 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                     plan: "premium"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                    lineNumber: 119,
+                                                    lineNumber: 117,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 112,
+                                                lineNumber: 110,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2148,13 +2164,13 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                 children: "Your freedom back for less than the price of a coffee."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 121,
+                                                lineNumber: 119,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                        lineNumber: 111,
+                                        lineNumber: 109,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2170,7 +2186,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 136,
+                                                lineNumber: 134,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             [
@@ -2204,14 +2220,14 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                                     children: "check"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                                    lineNumber: 157,
+                                                                    lineNumber: 155,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 feature
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                            lineNumber: 148,
+                                                            lineNumber: 146,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2222,19 +2238,19 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                            lineNumber: 174,
+                                                            lineNumber: 172,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, index, true, {
                                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                    lineNumber: 147,
+                                                    lineNumber: 145,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 132,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2244,9 +2260,9 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             marginBottom: '30px'
                                         },
                                         children: showCheckout ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Stripe$2f$StripeCheckout$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                            ref: stripeButtonRef,
                                             plan: "premium",
                                             buttonText: "Complete Your Purchase",
+                                            autoTrigger: triggerCheckout,
                                             className: "btn-primary product-pulse-button",
                                             style: {
                                                 width: '100%',
@@ -2265,7 +2281,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 186,
+                                            lineNumber: 184,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: handleStartNow,
@@ -2288,12 +2304,12 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             children: "Start now"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 208,
+                                            lineNumber: 206,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                        lineNumber: 184,
+                                        lineNumber: 182,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2330,7 +2346,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         children: "AMEX"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 242,
+                                                        lineNumber: 240,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2349,7 +2365,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         children: "PAY"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 243,
+                                                        lineNumber: 241,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2368,7 +2384,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         children: "IDEAL"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 244,
+                                                        lineNumber: 242,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2387,7 +2403,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         children: "GPAY"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 245,
+                                                        lineNumber: 243,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2399,7 +2415,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 246,
+                                                        lineNumber: 244,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2411,7 +2427,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 247,
+                                                        lineNumber: 245,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2430,7 +2446,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         children: "SHOP"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 248,
+                                                        lineNumber: 246,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2442,7 +2458,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 249,
+                                                        lineNumber: 247,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2461,23 +2477,23 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                         children: "VISA"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                        lineNumber: 250,
+                                                        lineNumber: 248,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 241,
+                                                lineNumber: 239,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 234,
+                                            lineNumber: 232,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                        lineNumber: 233,
+                                        lineNumber: 231,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2493,7 +2509,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 258,
+                                                lineNumber: 256,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             quickFaqs.map((faq, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2528,14 +2544,14 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                                     children: "question_mark"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                                    lineNumber: 282,
+                                                                    lineNumber: 280,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 faq.question
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                            lineNumber: 266,
+                                                            lineNumber: 264,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         expandedQuickFaq === index && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2550,7 +2566,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                             children: faq.answer
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                            lineNumber: 299,
+                                                            lineNumber: 297,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2561,41 +2577,41 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                            lineNumber: 311,
+                                                            lineNumber: 309,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, index, true, {
                                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                    lineNumber: 265,
+                                                    lineNumber: 263,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                        lineNumber: 256,
+                                        lineNumber: 254,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                lineNumber: 100,
+                                lineNumber: 98,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                        lineNumber: 74,
+                        lineNumber: 72,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                    lineNumber: 73,
+                    lineNumber: 71,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                lineNumber: 72,
+                lineNumber: 70,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2614,7 +2630,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                             }
                         }, void 0, false, {
                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                            lineNumber: 329,
+                            lineNumber: 327,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2644,12 +2660,12 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                 children: "schedule"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 348,
+                                                lineNumber: 346,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 343,
+                                            lineNumber: 341,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2663,7 +2679,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             children: "15 min Setup"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 360,
+                                            lineNumber: 358,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2677,13 +2693,13 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             children: "Let me guide you through the setup step by step"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 369,
+                                            lineNumber: 367,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                    lineNumber: 342,
+                                    lineNumber: 340,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2705,12 +2721,12 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                 children: "diamond"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 387,
+                                                lineNumber: 385,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 382,
+                                            lineNumber: 380,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2724,7 +2740,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             children: "Fun"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 399,
+                                            lineNumber: 397,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2738,13 +2754,13 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             children: "Receive weekly milestones & progress updates"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 408,
+                                            lineNumber: 406,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                    lineNumber: 381,
+                                    lineNumber: 379,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2766,12 +2782,12 @@ const ScreenTimeJourneyProductPage = ()=>{
                                                 children: "local_offer"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                                lineNumber: 426,
+                                                lineNumber: 424,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 421,
+                                            lineNumber: 419,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2785,7 +2801,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             children: "100% Refund"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 438,
+                                            lineNumber: 436,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2799,19 +2815,19 @@ const ScreenTimeJourneyProductPage = ()=>{
                                             children: "If this does not help you I promise a refund"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                            lineNumber: 447,
+                                            lineNumber: 445,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                    lineNumber: 420,
+                                    lineNumber: 418,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                            lineNumber: 335,
+                            lineNumber: 333,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2822,18 +2838,18 @@ const ScreenTimeJourneyProductPage = ()=>{
                             }
                         }, void 0, false, {
                             fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                            lineNumber: 460,
+                            lineNumber: 458,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                    lineNumber: 327,
+                    lineNumber: 325,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                lineNumber: 326,
+                lineNumber: 324,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Common$2f$MilestonesPreview$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2842,7 +2858,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                 title: "Milestones"
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                lineNumber: 469,
+                lineNumber: 467,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Common$2f$LeaderboardPreview$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2851,7 +2867,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                 title: "Leaderboard"
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                lineNumber: 472,
+                lineNumber: 470,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             showStickyCart && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2886,7 +2902,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                        lineNumber: 496,
+                        lineNumber: 494,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2906,7 +2922,7 @@ const ScreenTimeJourneyProductPage = ()=>{
                                 children: "Screentimejourney"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                lineNumber: 509,
+                                lineNumber: 507,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2919,18 +2935,18 @@ const ScreenTimeJourneyProductPage = ()=>{
                                     plan: "premium"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                    lineNumber: 524,
+                                    lineNumber: 522,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                                lineNumber: 519,
+                                lineNumber: 517,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                        lineNumber: 508,
+                        lineNumber: 506,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Stripe$2f$StripeCheckout$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2956,24 +2972,24 @@ const ScreenTimeJourneyProductPage = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                        lineNumber: 529,
+                        lineNumber: 527,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                lineNumber: 476,
+                lineNumber: 474,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Common$2f$Footer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-                lineNumber: 555,
+                lineNumber: 553,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(site)/product/screentimejourney/page.tsx",
-        lineNumber: 70,
+        lineNumber: 68,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

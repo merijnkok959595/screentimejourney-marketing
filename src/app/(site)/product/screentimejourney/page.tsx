@@ -11,8 +11,8 @@ const ScreenTimeJourneyProductPage = () => {
   const [expandedQuickFaq, setExpandedQuickFaq] = useState<number | null>(null);
   const [showStickyCart, setShowStickyCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [triggerCheckout, setTriggerCheckout] = useState(false);
   const mainButtonRef = useRef<HTMLDivElement>(null);
-  const stripeButtonRef = useRef<HTMLButtonElement>(null);
   const searchParams = useSearchParams();
 
   const toggleQuickFaq = (index: number) => {
@@ -42,11 +42,9 @@ const ScreenTimeJourneyProductPage = () => {
     const shouldCheckout = searchParams?.get('checkout');
     if (shouldCheckout === 'true') {
       setShowCheckout(true);
-      // Auto-trigger Stripe checkout
+      // Auto-trigger Stripe checkout after a short delay
       setTimeout(() => {
-        if (stripeButtonRef.current) {
-          stripeButtonRef.current.click();
-        }
+        setTriggerCheckout(true);
       }, 1000);
     }
   }, [searchParams]);
@@ -184,9 +182,9 @@ const ScreenTimeJourneyProductPage = () => {
               <div ref={mainButtonRef} style={{ width: '100%', marginBottom: '30px' }}>
                 {showCheckout ? (
                   <StripeCheckout 
-                    ref={stripeButtonRef}
                     plan="premium"
                     buttonText="Complete Your Purchase"
+                    autoTrigger={triggerCheckout}
                     className="btn-primary product-pulse-button"
                     style={{
                       width: '100%',
