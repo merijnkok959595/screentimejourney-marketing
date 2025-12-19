@@ -74,7 +74,14 @@ const Signup = () => {
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
         <div className="max-w-[570px] w-full mx-auto rounded-xl bg-white shadow-1 p-4 sm:p-7.5 xl:p-11">
           <div className="text-center mb-11">
-            <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '2rem',
+              fontWeight: '400',
+              color: 'var(--brand-text)',
+              marginBottom: '1.5rem',
+              textAlign: 'center'
+            }}>
               Create an Account
             </h2>
           </div>
@@ -128,18 +135,58 @@ const Signup = () => {
                   </clipPath>
                 </defs>
               </svg>
-              Sign Up with Google
+              <span style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'var(--brand-text)'
+              }}>
+                Sign Up with Google
+              </span>
             </button>
 
-            <span className="relative z-1 block font-medium text-center mt-4.5">
-              <span className="block absolute -z-1 left-0 top-1/2 h-px w-full bg-gray-3"></span>
-              <span className="inline-block px-3 bg-white">Or</span>
+            <span style={{
+              position: 'relative',
+              zIndex: '1',
+              display: 'block',
+              fontFamily: 'var(--font-body)',
+              fontWeight: '500',
+              textAlign: 'center',
+              marginTop: '1.125rem'
+            }}>
+              <span style={{
+                display: 'block',
+                position: 'absolute',
+                zIndex: '-1',
+                left: '0',
+                top: '50%',
+                height: '1px',
+                width: '100%',
+                backgroundColor: '#e5e7eb'
+              }}></span>
+              <span style={{
+                display: 'inline-block',
+                padding: '0 0.75rem',
+                backgroundColor: 'white',
+                fontFamily: 'var(--font-body)',
+                color: 'var(--brand-text)'
+              }}>Or</span>
             </span>
 
             <form onSubmit={handleSignUp} className="mt-5.5">
-              <div className="mb-5">
-                <label htmlFor="name" className="block mb-2.5">
-                  Full Name <span className="text-red">*</span>
+              <div style={{ marginBottom: '1.25rem' }}>
+                <label 
+                  htmlFor="name" 
+                  style={{
+                    display: 'block',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: '500',
+                    color: 'var(--brand-text)',
+                    marginBottom: '0.5rem',
+                    fontSize: '14px'
+                  }}
+                >
+                  Full Name <span style={{ color: '#dc2626' }}>*</span>
                 </label>
                 <input
                   type="text"
@@ -148,14 +195,37 @@ const Signup = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem 1rem',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '0.5rem',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    color: 'var(--brand-text)',
+                    backgroundColor: '#ffffff',
+                    outline: 'none',
+                    transition: 'border-color 0.2s ease'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = 'var(--brand-primary)'}
+                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
                   required
                 />
               </div>
 
-              <div className="mb-5">
-                <label htmlFor="email" className="block mb-2.5">
-                  Email Address <span className="text-red">*</span>
+              <div style={{ marginBottom: '1.25rem' }}>
+                <label 
+                  htmlFor="email" 
+                  style={{
+                    display: 'block',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: '500',
+                    color: 'var(--brand-text)',
+                    marginBottom: '0.5rem',
+                    fontSize: '14px'
+                  }}
+                >
+                  Email Address <span style={{ color: '#dc2626' }}>*</span>
                 </label>
                 <input
                   type="email"
@@ -164,14 +234,37 @@ const Signup = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem 1rem',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '0.5rem',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    color: 'var(--brand-text)',
+                    backgroundColor: '#ffffff',
+                    outline: 'none',
+                    transition: 'border-color 0.2s ease'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = 'var(--brand-primary)'}
+                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
                   required
                 />
               </div>
 
-              <div className="mb-5">
-                <label htmlFor="password" className="block mb-2.5">
-                  Password <span className="text-red">*</span>
+              <div style={{ marginBottom: '1.25rem' }}>
+                <label 
+                  htmlFor="password" 
+                  style={{
+                    display: 'block',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: '500',
+                    color: 'var(--brand-text)',
+                    marginBottom: '0.5rem',
+                    fontSize: '14px'
+                  }}
+                >
+                  Password <span style={{ color: '#dc2626' }}>*</span>
                 </label>
                 <input
                   type="password"
@@ -181,14 +274,37 @@ const Signup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   autoComplete="new-password"
-                  className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem 1rem',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '0.5rem',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    color: 'var(--brand-text)',
+                    backgroundColor: '#ffffff',
+                    outline: 'none',
+                    transition: 'border-color 0.2s ease'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = 'var(--brand-primary)'}
+                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
                   required
                 />
               </div>
 
-              <div className="mb-5.5">
-                <label htmlFor="confirm-password" className="block mb-2.5">
-                  Re-type Password <span className="text-red">*</span>
+              <div style={{ marginBottom: '1.375rem' }}>
+                <label 
+                  htmlFor="confirm-password" 
+                  style={{
+                    display: 'block',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: '500',
+                    color: 'var(--brand-text)',
+                    marginBottom: '0.5rem',
+                    fontSize: '14px'
+                  }}
+                >
+                  Re-type Password <span style={{ color: '#dc2626' }}>*</span>
                 </label>
                 <input
                   type="password"
@@ -198,7 +314,20 @@ const Signup = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Re-type your password"
                   autoComplete="new-password"
-                  className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem 1rem',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '0.5rem',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    color: 'var(--brand-text)',
+                    backgroundColor: '#ffffff',
+                    outline: 'none',
+                    transition: 'border-color 0.2s ease'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = 'var(--brand-primary)'}
+                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
                   required
                 />
               </div>
