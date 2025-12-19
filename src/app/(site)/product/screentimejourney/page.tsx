@@ -1,37 +1,27 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Footer from '@/components/Common/Footer';
 import MilestonesPreview from '@/components/Common/MilestonesPreview';
 import LeaderboardPreview from '@/components/Common/LeaderboardPreview';
 import StripeCheckout from '@/components/Stripe/StripeCheckout';
 import PriceDisplay from '@/components/Common/PriceDisplay';
-import AuthModal from '@/components/Auth/AuthModal';
 
 const ScreenTimeJourneyProductPage = () => {
   const [expandedQuickFaq, setExpandedQuickFaq] = useState<number | null>(null);
   const [showStickyCart, setShowStickyCart] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [proceedToCheckout, setProceedToCheckout] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
   const mainButtonRef = useRef<HTMLDivElement>(null);
+  const stripeButtonRef = useRef<HTMLButtonElement>(null);
+  const searchParams = useSearchParams();
 
   const toggleQuickFaq = (index: number) => {
     setExpandedQuickFaq(expandedQuickFaq === index ? null : index);
   };
 
   const handleStartNow = () => {
-    setShowAuthModal(true);
-  };
-
-  const handleAuthSuccess = () => {
-    setShowAuthModal(false);
-    setProceedToCheckout(true);
-    // Trigger stripe checkout after auth
-    setTimeout(() => {
-      const stripeButton = document.querySelector('.hidden-stripe-button') as HTMLButtonElement;
-      if (stripeButton) {
-        stripeButton.click();
-      }
-    }, 500);
+    // Redirect to signin page
+    window.location.href = '/signin';
   };
 
   useEffect(() => {
@@ -46,6 +36,20 @@ const ScreenTimeJourneyProductPage = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Check if user returned from signin and should proceed to checkout
+  useEffect(() => {
+    const shouldCheckout = searchParams?.get('checkout');
+    if (shouldCheckout === 'true') {
+      setShowCheckout(true);
+      // Auto-trigger Stripe checkout
+      setTimeout(() => {
+        if (stripeButtonRef.current) {
+          stripeButtonRef.current.click();
+        }
+      }, 1000);
+    }
+  }, [searchParams]);
 
   const quickFaqs = [
     {
@@ -176,37 +180,53 @@ const ScreenTimeJourneyProductPage = () => {
                 ))}
               </div>
 
-              {/* Start Now Button */}
+              {/* Start Now Button or Stripe Checkout */}
               <div ref={mainButtonRef} style={{ width: '100%', marginBottom: '30px' }}>
-                <button
-                  onClick={handleStartNow}
-                  className="btn-primary product-pulse-button"
-                  style={{
-                    width: '100%',
-                    display: 'inline-flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    padding: '18px 32px',
-                    fontSize: '1.1rem',
-                    fontWeight: '600',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
-                    transition: 'all 0.2s ease',
-                    cursor: 'pointer',
-                    border: 'none',
-                    fontFamily: 'var(--font-body)'
-                  }}
-                >
-                  Start now
-                </button>
-                
-                {/* Hidden Stripe Button for after auth */}
-                <StripeCheckout 
-                  plan="premium"
-                  buttonText="Processing..."
-                  className="hidden-stripe-button"
-                  style={{ display: 'none' }}
-                />
+                {showCheckout ? (
+                  <StripeCheckout 
+                    ref={stripeButtonRef}
+                    plan="premium"
+                    buttonText="Complete Your Purchase"
+                    className="btn-primary product-pulse-button"
+                    style={{
+                      width: '100%',
+                      display: 'inline-flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: '18px 32px',
+                      fontSize: '1.1rem',
+                      fontWeight: '600',
+                      borderRadius: '8px',
+                      textDecoration: 'none',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer',
+                      border: 'none',
+                      fontFamily: 'var(--font-body)'
+                    }}
+                  />
+                ) : (
+                  <button
+                    onClick={handleStartNow}
+                    className="btn-primary product-pulse-button"
+                    style={{
+                      width: '100%',
+                      display: 'inline-flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: '18px 32px',
+                      fontSize: '1.1rem',
+                      fontWeight: '600',
+                      borderRadius: '8px',
+                      textDecoration: 'none',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer',
+                      border: 'none',
+                      fontFamily: 'var(--font-body)'
+                    }}
+                  >
+                    Start now
+                  </button>
+                )}
               </div>
 
               {/* Payment Methods */}
@@ -531,13 +551,6 @@ const ScreenTimeJourneyProductPage = () => {
         </div>
       )}
 
-      {/* Auth Modal */}
-      <AuthModal
-        isOpen={showAuthModal}
-        onClose={() => setShowAuthModal(false)}
-        defaultMode="signup"
-        onAuthSuccess={handleAuthSuccess}
-      />
 
       <Footer />
     </main>

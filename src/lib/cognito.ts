@@ -4,9 +4,19 @@ import { Amplify } from 'aws-amplify';
 Amplify.configure({
   Auth: {
     Cognito: {
-      region: process.env.NEXT_PUBLIC_AWS_REGION || 'us-east-1',
+      region: process.env.NEXT_PUBLIC_AWS_REGION || 'eu-north-1',
       userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID!,
       userPoolClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID!,
+      loginWith: {
+        oauth: {
+          domain: process.env.NEXT_PUBLIC_OAUTH_DOMAIN!,
+          scopes: ['email', 'openid', 'profile'],
+          redirectSignIn: [process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || 'http://localhost:3003/product/screentimejourney?checkout=true'],
+          redirectSignOut: [process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNOUT || 'http://localhost:3003'],
+          responseType: 'code',
+          providers: ['Google']
+        }
+      }
     }
   }
 });

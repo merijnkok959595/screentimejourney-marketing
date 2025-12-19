@@ -20,8 +20,8 @@ const FooterCurrencySelector: React.FC<FooterCurrencySelectorProps> = ({
   useEffect(() => {
     const initCountry = async () => {
       try {
-        // Try to get saved country first
-        const savedCode = localStorage.getItem('selected_country');
+        // Try to get saved country first (browser only)
+        const savedCode = typeof window !== 'undefined' ? localStorage.getItem('selected_country') : null;
         if (savedCode) {
           const country = getCountryByCode(savedCode);
           if (country) {
@@ -36,7 +36,9 @@ const FooterCurrencySelector: React.FC<FooterCurrencySelectorProps> = ({
         const country = getCountryByCode(detectedCode);
         if (country) {
           setSelectedCountry(country);
-          localStorage.setItem('selected_country', detectedCode);
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('selected_country', detectedCode);
+          }
         }
       } catch (error) {
         // Fallback to Germany (EUR)
@@ -79,7 +81,9 @@ const FooterCurrencySelector: React.FC<FooterCurrencySelectorProps> = ({
 
   const handleCountrySelect = (country: Country) => {
     setSelectedCountry(country);
-    localStorage.setItem('selected_country', country.code);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selected_country', country.code);
+    }
     setIsOpen(false);
     setSearchTerm('');
     
@@ -127,7 +131,10 @@ const FooterCurrencySelector: React.FC<FooterCurrencySelectorProps> = ({
         className={`disclosure__button footer-currency-selector flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md bg-transparent text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all text-sm font-medium ${className}`}
         style={{ textAlign: 'left', justifyContent: 'flex-start' }}
         aria-expanded={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          console.log('Footer currency selector clicked, isOpen:', !isOpen);
+          setIsOpen(!isOpen);
+        }}
       >
         <span className="flex items-center gap-2">
           <span className="whitespace-nowrap">{selectedCountry.name} | {selectedCountry.currency}</span>
@@ -149,7 +156,7 @@ const FooterCurrencySelector: React.FC<FooterCurrencySelectorProps> = ({
 
       {isOpen && (
         <>
-          <div className="disclosure__list-wrapper country-selector absolute bottom-full left-0 mb-2 bg-white rounded-md shadow-lg border border-gray-200 z-50 min-w-[320px] max-h-[500px] overflow-hidden">
+          <div className="disclosure__list-wrapper country-selector absolute bottom-full left-0 mb-2 bg-white rounded-md shadow-lg border border-gray-200 min-w-[320px] max-h-[500px] overflow-hidden" style={{ zIndex: 9999, border: '2px solid red' }}>
             {/* Search Input */}
             <div className="p-3 border-b border-gray-100">
               <div className="relative">

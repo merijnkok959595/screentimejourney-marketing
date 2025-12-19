@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
         </div>
         
         {/* Separator Line */}
-        <div style={{ height: '1px', backgroundColor: '#f5f5f5', marginBottom: '1rem' }}></div>
+        <div style={{ height: '1px', backgroundColor: '#eeeeee', marginBottom: '1rem' }}></div>
         
         <div className="footer-policies">
           <span>2025, SCREENTIMEJOURNEY ©</span>

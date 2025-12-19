@@ -4129,7 +4129,7 @@ header[class*="bg-transparent"] .header-nav a {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.15);
+  /* border-top removed for cleaner design */
   padding-top: 2rem;
   max-width: 1200px;
   margin-left: auto;
