@@ -151,11 +151,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
                 style={{ 
-                  fontFamily: 'var(--font-body)',
-                  focusBorderColor: 'var(--brand-primary)',
-                  focusRingColor: 'var(--brand-primary)'
+                  fontFamily: 'var(--font-body)'
                 }}
                 required
               />
@@ -166,11 +164,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
                 style={{ 
-                  fontFamily: 'var(--font-body)',
-                  focusBorderColor: 'var(--brand-primary)',
-                  focusRingColor: 'var(--brand-primary)'
+                  fontFamily: 'var(--font-body)'
                 }}
                 required
               />
@@ -218,11 +214,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
                 style={{ 
-                  fontFamily: 'var(--font-body)',
-                  focusBorderColor: 'var(--brand-primary)',
-                  focusRingColor: 'var(--brand-primary)'
+                  fontFamily: 'var(--font-body)'
                 }}
                 required
               />
@@ -233,11 +227,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
                 style={{ 
-                  fontFamily: 'var(--font-body)',
-                  focusBorderColor: 'var(--brand-primary)',
-                  focusRingColor: 'var(--brand-primary)'
+                  fontFamily: 'var(--font-body)'
                 }}
                 required
               />
@@ -248,11 +240,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-20 transition-all duration-200"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
                 style={{ 
-                  fontFamily: 'var(--font-body)',
-                  focusBorderColor: 'var(--brand-primary)',
-                  focusRingColor: 'var(--brand-primary)'
+                  fontFamily: 'var(--font-body)'
                 }}
                 required
               />
