@@ -111,12 +111,12 @@ const NextAuthSignin = () => {
                     transition: 'all 0.2s ease'
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'var(--brand-primary)';
-                    e.target.style.color = 'white';
+                    (e.target as HTMLButtonElement).style.backgroundColor = 'var(--brand-primary)';
+                    (e.target as HTMLButtonElement).style.color = 'white';
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.color = 'var(--brand-primary)';
+                    (e.target as HTMLButtonElement).style.backgroundColor = 'transparent';
+                    (e.target as HTMLButtonElement).style.color = 'var(--brand-primary)';
                   }}
                 >
                   Try a different email
