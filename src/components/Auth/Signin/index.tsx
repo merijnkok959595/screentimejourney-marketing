@@ -5,8 +5,7 @@ import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Footer from '@/components/Common/Footer';
-import { COGNITO_CONFIG, ensureAmplifyConfigured } from '@/lib/cognito';
-import { initializeAmplify, COGNITO_CLIENT_CONFIG } from '@/lib/cognito-client';
+// Amplify is now configured at top level - no need for complex initialization
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -14,20 +13,9 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  // Check Cognito configuration on component mount
+  // Amplify is now configured at app level - just verify it's ready
   useEffect(() => {
-    console.log('🔧 Signin: Initializing client-side Amplify...');
-    
-    // Use the bulletproof client-side configuration
-    const configured = initializeAmplify();
-    
-    if (configured) {
-      console.log('✅ Signin: Amplify configured successfully');
-      console.log('✅ Config used:', COGNITO_CLIENT_CONFIG);
-    } else {
-      console.error('❌ Failed to configure Amplify');
-      toast.error('Authentication configuration failed');
-    }
+    console.log('🔧 Signin: Component mounted - Amplify configured at app level');
   }, []);
 
   const handleSignIn = async (e: React.FormEvent) => {
@@ -37,13 +25,7 @@ const Signin = () => {
       return;
     }
 
-    // Ensure Amplify is configured before attempting sign in
-    const configured = initializeAmplify();
-    if (!configured) {
-      toast.error('Authentication service not configured properly');
-      console.error('❌ Amplify configuration failed');
-      return;
-    }
+    // Amplify is configured at app level, ready to use
 
     try {
       setLoading(true);
@@ -91,16 +73,9 @@ const Signin = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      // Ensure Amplify is configured
-      const configured = initializeAmplify();
-      if (!configured) {
-        toast.error('Authentication service not configured properly');
-        return;
-      }
-
-      // Use the hardcoded reliable configuration
-      const cognitoDomain = COGNITO_CLIENT_CONFIG.oauthDomain;
-      const clientId = COGNITO_CLIENT_CONFIG.userPoolClientId;
+      // Use environment variables for OAuth (configured at app level)
+      const cognitoDomain = process.env.NEXT_PUBLIC_OAUTH_DOMAIN || 'eu-north-11ksvbpqxn.auth.eu-north-1.amazoncognito.com';
+      const clientId = process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID || '5j2nk1vlfok15ss7mh242bpd1h';
       const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
       
       console.log('🔍 Google OAuth Config:', { cognitoDomain, clientId, redirectUri, origin: window.location.origin });
