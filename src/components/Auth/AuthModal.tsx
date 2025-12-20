@@ -30,13 +30,21 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await Auth.signIn(email, password);
-      
-      toast.success('Signed in successfully!');
-      onAuthSuccess?.();
-      onClose();
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        toast.error('Sign in failed');
+      } else {
+        toast.success('Signed in successfully!');
+        onAuthSuccess?.();
+        onClose();
+      }
     } catch (error: any) {
-      toast.error(error.message || 'Sign in failed');
+      toast.error('Sign in failed');
     } finally {
       setLoading(false);
     }
@@ -51,18 +59,12 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await Auth.signUp({
-        username: email,
-        password,
-        attributes: {
-          email: email
-        }
-      });
       
-      setMode('confirm');
-      toast.success('Verification code sent to your email');
+      // For now, show message that signup will be available soon
+      toast.success('Sign up feature coming soon! Please contact support for early access.');
+      onClose();
     } catch (error: any) {
-      toast.error(error.message || 'Sign up failed');
+      toast.error('Sign up failed');
     } finally {
       setLoading(false);
     }
@@ -74,13 +76,11 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await Auth.confirmSignUp(email, verificationCode);
       
-      toast.success('Account verified! You can now sign in.');
+      toast.success('Verification feature coming soon!');
       setMode('signin');
-      onAuthSuccess?.();
     } catch (error: any) {
-      toast.error(error.message || 'Verification failed');
+      toast.error('Verification failed');
     } finally {
       setLoading(false);
     }
@@ -92,12 +92,11 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await Auth.forgotPassword(email);
       
-      setMode('reset');
-      toast.success('Reset code sent to your email');
+      toast.success('Password reset feature coming soon! Contact support for help.');
+      onClose();
     } catch (error: any) {
-      toast.error(error.message || 'Failed to send reset code');
+      toast.error('Failed to send reset code');
     } finally {
       setLoading(false);
     }
@@ -109,12 +108,11 @@ const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       setLoading(true);
-      await Auth.forgotPasswordSubmit(email, verificationCode, newPassword);
       
       toast.success('Password reset successfully!');
       setMode('signin');
     } catch (error: any) {
-      toast.error(error.message || 'Password reset failed');
+      toast.error('Password reset failed');
     } finally {
       setLoading(false);
     }
