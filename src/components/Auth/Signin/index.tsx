@@ -5,7 +5,8 @@ import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Footer from '@/components/Common/Footer';
-// Amplify is now configured at top level - no need for complex initialization
+// Ultra-bulletproof Amplify configuration
+import { configureAmplifyNow, HARDCODED_CONFIG } from '@/lib/amplify-config';
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -13,9 +14,16 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  // Amplify is now configured at app level - just verify it's ready
+  // Force Amplify configuration before any auth operations
   useEffect(() => {
-    console.log('🔧 Signin: Component mounted - Amplify configured at app level');
+    console.log('🔧 Signin: Ensuring Amplify is configured...');
+    const configured = configureAmplifyNow();
+    if (configured) {
+      console.log('✅ Signin: Amplify ready for authentication');
+    } else {
+      console.error('❌ Signin: Failed to configure Amplify');
+      toast.error('Authentication system error. Please refresh the page.');
+    }
   }, []);
 
   const handleSignIn = async (e: React.FormEvent) => {
@@ -25,7 +33,12 @@ const Signin = () => {
       return;
     }
 
-    // Amplify is configured at app level, ready to use
+    // Force configuration before sign in attempt
+    const configured = configureAmplifyNow();
+    if (!configured) {
+      toast.error('Authentication system not ready. Please try again.');
+      return;
+    }
 
     try {
       setLoading(true);
@@ -73,9 +86,16 @@ const Signin = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      // Use environment variables for OAuth (configured at app level)
-      const cognitoDomain = process.env.NEXT_PUBLIC_OAUTH_DOMAIN || 'eu-north-11ksvbpqxn.auth.eu-north-1.amazoncognito.com';
-      const clientId = process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID || '5j2nk1vlfok15ss7mh242bpd1h';
+      // Force configuration before OAuth attempt
+      const configured = configureAmplifyNow();
+      if (!configured) {
+        toast.error('Authentication system not ready. Please try again.');
+        return;
+      }
+
+      // Use hardcoded reliable values for OAuth
+      const cognitoDomain = HARDCODED_CONFIG.oauthDomain;
+      const clientId = HARDCODED_CONFIG.userPoolClientId;
       const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
       
       console.log('🔍 Google OAuth Config:', { cognitoDomain, clientId, redirectUri, origin: window.location.origin });

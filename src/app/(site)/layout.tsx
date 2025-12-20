@@ -15,48 +15,10 @@ import { PreviewSliderProvider } from "@/app/context/PreviewSliderContext";
 import PreviewSliderModal from "@/components/Common/PreviewSlider";
 
 import AnnouncementBar from "@/components/Common/AnnouncementBar";
-
-// 🔥 CHATGPT'S BULLETPROOF FIX: Configure Amplify at TOP LEVEL
-import { Amplify } from 'aws-amplify';
 import { Toaster } from 'react-hot-toast';
 
-// Configure Amplify immediately when app loads (CLIENT-SIDE ONLY)
-if (typeof window !== 'undefined') {
-  console.log('🔧 AMPLIFY TOP-LEVEL CONFIG:', {
-    region: process.env.NEXT_PUBLIC_AWS_REGION,
-    pool: process.env.NEXT_PUBLIC_USER_POOL_ID,
-    client: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID,
-  });
-
-  Amplify.configure({
-    Auth: {
-      Cognito: {
-        region: process.env.NEXT_PUBLIC_AWS_REGION || 'eu-north-1',
-        userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID || 'eu-north-1_1kSVbpQXN',
-        userPoolClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID || '5j2nk1vlfok15ss7mh242bpd1h',
-        loginWith: {
-          oauth: {
-            domain: process.env.NEXT_PUBLIC_OAUTH_DOMAIN || 'eu-north-11ksvbpqxn.auth.eu-north-1.amazoncognito.com',
-            scopes: ['email', 'openid', 'profile'],
-            redirectSignIn: [
-              process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || 'https://screentimejourney.com/auth/callback',
-              'http://localhost:3333/auth/callback',
-              typeof window !== 'undefined' ? `${window.location.origin}/auth/callback` : 'https://screentimejourney.com/auth/callback'
-            ],
-            redirectSignOut: [
-              process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNOUT || 'https://screentimejourney.com',
-              'http://localhost:3333',
-              typeof window !== 'undefined' ? window.location.origin : 'https://screentimejourney.com'
-            ],
-            responseType: 'code',
-            providers: ['Google']
-          }
-        }
-      }
-    }
-  });
-  console.log('✅ AMPLIFY CONFIGURED AT TOP LEVEL - AUTH SHOULD WORK NOW!');
-}
+// 🚀 ULTRA-BULLETPROOF: Import the amplify configuration
+import '@/lib/amplify-config';
 
 export default function RootLayout({
   children,

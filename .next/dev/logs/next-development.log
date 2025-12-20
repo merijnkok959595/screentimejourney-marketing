@@ -163,3 +163,31 @@
 [03:14:27.351] Server  LOG     ✓ Compiled in 100ms
 [03:14:27.421] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
 [03:14:27.421] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:27.439] Server  LOG     ✓ Compiled in 150ms
+[03:20:27.521] Server  LOG     FooterCurrencySelector render: {}
+[03:20:27.529] Browser LOG     🔄 AUTO-CONFIGURING AMPLIFY ON MODULE LOAD...
+[03:20:27.529] Browser LOG     🔧 ENV VARS DEBUG: {"isClient":true}
+[03:20:27.529] Browser LOG     🚀 USING CONFIG: {"oauthDomain":"eu-north-11ksvbpqxn.auth.eu-north-1.amazoncognito.com","region":"eu-north-1","userPoolClientId":"5j2nk1vlfok15ss7mh242bpd1h","userPoolId":"eu-north-1_1kSVbpQXN"}
+[03:20:27.529] Browser LOG     🎉 AMPLIFY CONFIGURED SUCCESSFULLY WITH ULTRA-BULLETPROOF METHOD!
+[03:20:27.610] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:20:27.610] Browser LOG     🔄 AUTO-CONFIGURING AMPLIFY ON MODULE LOAD...
+[03:20:27.610] Browser LOG     🔧 ENV VARS DEBUG: {"isClient":true}
+[03:20:27.610] Browser LOG     🚀 USING CONFIG: {"oauthDomain":"eu-north-11ksvbpqxn.auth.eu-north-1.amazoncognito.com","region":"eu-north-1","userPoolClientId":"5j2nk1vlfok15ss7mh242bpd1h","userPoolId":"eu-north-1_1kSVbpQXN"}
+[03:20:27.610] Browser LOG     🎉 AMPLIFY CONFIGURED SUCCESSFULLY WITH ULTRA-BULLETPROOF METHOD!
+[03:20:27.763] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:20:27.763] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:20:27.763] Browser LOG     🔧 Signin: Component mounted - Amplify configured at app level
+[03:20:27.763] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:27.763] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:29.016] Server  LOG     ✓ Compiled in 111ms
+[03:20:29.091] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:29.091] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:31.857] Server  LOG     ✓ Compiled in 91ms
+[03:20:31.935] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:31.935] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:33.384] Server  LOG     ✓ Compiled in 93ms
+[03:20:33.460] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:33.460] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:35.710] Server  LOG     ✓ Compiled in 97ms
+[03:20:35.786] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:20:35.786] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
