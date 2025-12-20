@@ -100,3 +100,17 @@
 [00:15:48.756] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
 [00:15:48.756] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
 [00:15:48.756] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:08:51.989] Server  LOG     ✓ Compiled in 166ms
+[03:08:52.065] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:08:52.065] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:08:56.695] Server  LOG     ✓ Compiled in 123ms
+[03:08:56.775] Browser LOG     🔧 Configuring Amplify with hardcoded values...
+[03:08:56.775] Browser LOG     ✅ Amplify configured successfully with client config
+[03:08:56.775] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:08:56.775] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:08:58.862] Server  LOG     ✓ Compiled in 122ms
+[03:08:58.937] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:08:58.937] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:09:05.605] Server  LOG     ✓ Compiled in 98ms
+[03:09:05.680] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:09:05.680] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
