@@ -16,7 +16,7 @@ import PreviewSliderModal from "@/components/Common/PreviewSlider";
 
 import AnnouncementBar from "@/components/Common/AnnouncementBar";
 import { Toaster } from 'react-hot-toast';
-import AmplifyInit from '@/components/AmplifyInit';
+import { AuthProvider } from '@/app/providers';
 
 export default function RootLayout({
   children,
@@ -203,8 +203,8 @@ export default function RootLayout({
         />
         
           <>
-            <AmplifyInit />
-            <ReduxProvider>
+            <AuthProvider>
+              <ReduxProvider>
               <CartModalProvider>
                 <ModalProvider>
                   <PreviewSliderProvider>
@@ -230,7 +230,8 @@ export default function RootLayout({
                     />
                   </ModalProvider>
                 </CartModalProvider>
-            </ReduxProvider>
+              </ReduxProvider>
+            </AuthProvider>
             </>
       </body>
     </html>

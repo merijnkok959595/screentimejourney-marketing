@@ -1,4 +1,5 @@
 {
   "/(site)/(pages)/signin/page": "app/(site)/(pages)/signin/page.js",
-  "/(site)/page": "app/(site)/page.js"
+  "/(site)/page": "app/(site)/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

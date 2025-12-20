@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///Users/merijnkok/Desktop/screen-time-journey-workspace/src/app/%28site%29/%28pages%29/signin/page.tsx"],"sourcesContent":["import NextAuthSignin from \"@/components/Auth/Signin/NextAuthSignin\";\nimport React from \"react\";\nimport { Metadata } from \"next\";\nexport const metadata: Metadata = {\n  title: \"Sign In | ScreenTimeJourney - Digital Detox & Focus Platform\",\n  description: \"Sign in to your ScreenTimeJourney account and start your digital detox journey today.\",\n  // other metadata\n};\n\nconst SigninPage = () => {\n  return (\n    <main>\n      <Signin />\n    </main>\n  );\n};\n\nexport default SigninPage;\n"],"names":[],"mappings":";;;;;;;;AAGO,MAAM,WAAqB;IAChC,OAAO;IACP,aAAa;AAEf;AAEA,MAAM,aAAa;IACjB,qBACE,8OAAC;kBACC,cAAA,8OAAC;;;;;;;;;;AAGP;uCAEe"}}]
+}

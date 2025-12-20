@@ -1,6 +1,8 @@
-import Signin from "@/components/Auth/Signin";
+import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
 import React from "react";
 import { Metadata } from "next";
+import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+
 export const metadata: Metadata = {
   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
   description: "Sign in to your ScreenTimeJourney account and start your digital detox journey today.",
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 const SigninPage = () => {
   return (
     <main>
-      <Signin />
+      <NextAuthSignin />
     </main>
   );
 };

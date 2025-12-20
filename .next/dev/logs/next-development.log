@@ -247,3 +247,146 @@
 [03:26:09.580] Browser LOG     🔧 Signin: Component mounted, Amplify should be configured
 [03:26:09.580] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
 [03:26:09.580] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:33:40.041] Browser LOG     ✅ AMPLIFY CONFIG RUNNING IN BROWSER {"Auth":{}}
+[03:33:40.041] Browser LOG     ✅ AMPLIFY CONFIG RUNNING IN BROWSER {"Auth":{}}
+[03:33:40.041] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:33:40.041] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:34:15.716] Server  LOG     ✓ Compiled in 119ms
+[03:34:15.814] Server  ERROR   ⨯ ReferenceError: AmplifyInit is not defined
+[03:34:15.821] Browser ERROR   uncaughtError: ReferenceError: AmplifyInit is not defined
+[03:34:15.920] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:34:16.059] Browser ERROR   uncaughtError: ReferenceError: AmplifyInit is not defined
+[03:34:16.202] Server  LOG     ✓ Compiled in 136ms
+[03:34:16.305] Browser ERROR   ./src/app/(site)/layout.tsx:235:7
+Parsing ecmascript source code failed
+  233 |             </ReduxProvider>
+  234 |             </>
+> 235 |       </body>
+      |       ^
+  236 |     </html>
+  237 |   );
+  238 | }
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(site)/layout.tsx [Client Component Browser]
+    ./src/app/(site)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(site)/layout.tsx [Client Component SSR]
+    ./src/app/(site)/layout.tsx [Server Component]
+[03:34:16.305] Browser ERROR   ./src/app/(site)/layout.tsx:235:8
+Parsing ecmascript source code failed
+  233 |             </ReduxProvider>
+  234 |             </>
+> 235 |       </body>
+      |        ^^^^^^
+  236 |     </html>
+  237 |   );
+  238 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(site)/layout.tsx [Client Component Browser]
+    ./src/app/(site)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(site)/layout.tsx [Client Component SSR]
+    ./src/app/(site)/layout.tsx [Server Component]
+[03:34:16.842] Server  LOG     FooterCurrencySelector render: {}
+[03:34:16.851] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:34:16.885] Server  LOG     FooterCurrencySelector render: {}
+[03:34:16.955] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:34:17.121] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:34:17.121] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:34:17.121] Browser LOG     🔧 Signin: Component mounted, Amplify should be configured
+[03:34:17.121] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:34:17.121] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:34:17.845] Server  ERROR   ⨯ ReferenceError: Signin is not defined
+[03:34:17.854] Server  ERROR   ⨯ ReferenceError: Signin is not defined
+[03:34:17.913] Server  WARN    [next-auth][warn][NEXTAUTH_URL] "\nhttps://next-auth.js.org/warnings#nextauth_url"
+[03:34:17.913] Server  WARN    [next-auth][warn][NO_SECRET] "\nhttps://next-auth.js.org/warnings#no_secret"
+[03:34:17.965] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:34:18.192] Browser ERROR   uncaughtError: ReferenceError: Signin is not defined
+[03:34:18.192] Browser ERROR   uncaughtError: TypeError: Failed to execute 'measure' on 'Performance': '​SigninPage' cannot have a negative time stamp.
+[03:34:25.782] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:34:30.888] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:34:41.022] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:34:57.663] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:34:57.773] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:34:58.050] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:34:58.572] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
