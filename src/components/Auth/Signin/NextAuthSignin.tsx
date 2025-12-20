@@ -19,31 +19,36 @@ const NextAuthSignin = () => {
       return;
     }
 
-    try {
-      setLoading(true);
-      console.log('🔐 Sending magic link to:', email);
-      
-      const result = await signIn('email', {
-        email,
-        redirect: false,
-        callbackUrl: '/product/screentimejourney?checkout=true'
-      });
+    // Temporarily show message since email provider is disabled
+    toast.error('Magic links coming soon! Please use Google sign-in for now.');
+    return;
 
-      if (result?.error) {
-        console.error('❌ Magic link failed:', result.error);
-        toast.error('Failed to send magic link');
-      } else {
-        console.log('✅ Magic link sent');
-        setMagicLinkSent(true);
-        toast.success('Magic link sent! Check your email.');
-      }
+    // TODO: Re-enable when email service is configured
+    // try {
+    //   setLoading(true);
+    //   console.log('🔐 Sending magic link to:', email);
+    //   
+    //   const result = await signIn('email', {
+    //     email,
+    //     redirect: false,
+    //     callbackUrl: '/product/screentimejourney?checkout=true'
+    //   });
+
+    //   if (result?.error) {
+    //     console.error('❌ Magic link failed:', result.error);
+    //     toast.error('Failed to send magic link');
+    //   } else {
+    //     console.log('✅ Magic link sent');
+    //     setMagicLinkSent(true);
+    //     toast.success('Magic link sent! Check your email.');
+    //   }
       
-    } catch (error: any) {
-      console.error('Magic link error:', error);
-      toast.error('Failed to send magic link. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+    // } catch (error: any) {
+    //   console.error('Magic link error:', error);
+    //   toast.error('Failed to send magic link. Please try again.');
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   const handleGoogleSignIn = async () => {
@@ -99,25 +104,7 @@ const NextAuthSignin = () => {
                 </p>
                 <button
                   onClick={() => {setMagicLinkSent(false); setEmail('');}}
-                  style={{
-                    background: 'none',
-                    border: '1px solid var(--brand-primary)',
-                    color: 'var(--brand-primary)',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '0.5rem',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLButtonElement).style.backgroundColor = 'var(--brand-primary)';
-                    (e.target as HTMLButtonElement).style.color = 'white';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as HTMLButtonElement).style.backgroundColor = 'transparent';
-                    (e.target as HTMLButtonElement).style.color = 'var(--brand-primary)';
-                  }}
+                  className="border border-purple-900 text-purple-900 hover:bg-purple-900 hover:text-white px-4 py-2 rounded-lg font-medium text-sm cursor-pointer transition-all duration-200"
                 >
                   Try a different email
                 </button>
