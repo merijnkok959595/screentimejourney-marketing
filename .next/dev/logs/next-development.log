@@ -390,3 +390,34 @@ Ecmascript file had an error
   7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
 
 the name `NextAuthSignin` is defined multiple times
+[03:34:59.017] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:35:00.228] Browser ERROR   ./src/app/(site)/(pages)/signin/page.tsx:4:8
+Ecmascript file had an error
+  2 | import React from "react";
+  3 | import { Metadata } from "next";
+> 4 | import NextAuthSignin from "@/components/Auth/Signin/NextAuthSignin";
+    |        ^^^^^^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "Sign In | ScreenTimeJourney - Digital Detox & Focus Platform",
+
+the name `NextAuthSignin` is defined multiple times
+[03:38:11.229] Server  LOG     ✓ Compiled in 468ms
+[03:38:11.538] Server  LOG     FooterCurrencySelector render: {}
+[03:38:11.726] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:38:11.835] Server  WARN    [next-auth][warn][NEXTAUTH_URL] "\nhttps://next-auth.js.org/warnings#nextauth_url"
+[03:38:11.835] Server  WARN    [next-auth][warn][NO_SECRET] "\nhttps://next-auth.js.org/warnings#no_secret"
+[03:38:11.870] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:38:11.870] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:38:11.870] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:38:11.870] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}

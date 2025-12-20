@@ -2,7 +2,8 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Footer from '@/components/Common/Footer';
-import { COGNITO_CONFIG } from '@/lib/cognito';
+// Simple fallback config since we're using NextAuth now
+const DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.screentimejourney.com';
 
 const PaymentSuccessContent = () => {
   const searchParams = useSearchParams();
@@ -75,7 +76,7 @@ const PaymentSuccessContent = () => {
     if (userAccount?.dashboardUrl) {
       window.location.href = userAccount.dashboardUrl;
     } else {
-      window.location.href = COGNITO_CONFIG.DASHBOARD_URL;
+      window.location.href = DASHBOARD_URL;
     }
   };
 
