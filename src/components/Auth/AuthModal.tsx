@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Auth } from 'aws-amplify';
+import { signIn } from 'next-auth/react';
 import toast from 'react-hot-toast';
 
 interface AuthModalProps {
