@@ -19,36 +19,31 @@ const NextAuthSignin = () => {
       return;
     }
 
-    // Temporarily show message since email provider is disabled
-    toast.error('Magic links coming soon! Please use Google sign-in for now.');
-    return;
-
-    // TODO: Re-enable when email service is configured
-    // try {
-    //   setLoading(true);
-    //   console.log('🔐 Sending magic link to:', email);
-    //   
-    //   const result = await signIn('email', {
-    //     email,
-    //     redirect: false,
-    //     callbackUrl: '/product/screentimejourney?checkout=true'
-    //   });
-
-    //   if (result?.error) {
-    //     console.error('❌ Magic link failed:', result.error);
-    //     toast.error('Failed to send magic link');
-    //   } else {
-    //     console.log('✅ Magic link sent');
-    //     setMagicLinkSent(true);
-    //     toast.success('Magic link sent! Check your email.');
-    //   }
+    try {
+      setLoading(true);
+      console.log('🔐 Sending magic link to:', email);
       
-    // } catch (error: any) {
-    //   console.error('Magic link error:', error);
-    //   toast.error('Failed to send magic link. Please try again.');
-    // } finally {
-    //   setLoading(false);
-    // }
+      const result = await signIn('email', {
+        email,
+        redirect: false,
+        callbackUrl: '/product/screentimejourney?checkout=true'
+      });
+
+      if (result?.error) {
+        console.error('❌ Magic link failed:', result.error);
+        toast.error('Failed to send magic link - email service not configured yet. Please use Google sign-in for now.');
+      } else {
+        console.log('✅ Magic link sent');
+        setMagicLinkSent(true);
+        toast.success('Magic link sent! Check your email.');
+      }
+      
+    } catch (error: any) {
+      console.error('Magic link error:', error);
+      toast.error('Email service not configured yet. Please use Google sign-in for now.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleGoogleSignIn = async () => {
