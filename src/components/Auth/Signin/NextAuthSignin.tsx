@@ -9,42 +9,38 @@ import Footer from '@/components/Common/Footer';
 const NextAuthSignin = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [magicLinkSent, setMagicLinkSent] = useState(false);
   const router = useRouter();
 
-  const handleSignIn = async (e: React.FormEvent) => {
+  const handleMagicLinkSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) {
-      toast.error('Please enter both email and password');
+    if (!email) {
+      toast.error('Please enter your email address');
       return;
     }
 
     try {
       setLoading(true);
-      console.log('🔐 Attempting sign in with NextAuth:', email);
+      console.log('🔐 Sending magic link to:', email);
       
-      const result = await signIn('credentials', {
+      const result = await signIn('email', {
         email,
-        password,
-        redirect: false, // Handle redirect manually
+        redirect: false,
+        callbackUrl: '/product/screentimejourney?checkout=true'
       });
 
       if (result?.error) {
-        console.error('❌ Sign in failed:', result.error);
-        toast.error('Incorrect email or password');
+        console.error('❌ Magic link failed:', result.error);
+        toast.error('Failed to send magic link');
       } else {
-        console.log('✅ Sign in successful');
-        toast.success('Signed in successfully! Redirecting to checkout...');
-        
-        // Redirect to product page with checkout parameter
-        setTimeout(() => {
-          router.push('/product/screentimejourney?checkout=true');
-        }, 1000);
+        console.log('✅ Magic link sent');
+        setMagicLinkSent(true);
+        toast.success('Magic link sent! Check your email.');
       }
       
     } catch (error: any) {
-      console.error('Sign in error:', error);
-      toast.error('Sign in failed. Please try again.');
+      console.error('Magic link error:', error);
+      toast.error('Failed to send magic link. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -76,116 +72,115 @@ const NextAuthSignin = () => {
               marginBottom: '1.5rem',
               textAlign: 'center'
             }}>
-              Sign In to Your Account
+              {magicLinkSent ? 'Check Your Email!' : 'Sign In to Your Account'}
             </h2>
           </div>
 
           <div>
-            <form onSubmit={handleSignIn}>
-              <div style={{ marginBottom: '1.25rem' }}>
-                <label 
-                  htmlFor="email" 
-                  style={{
-                    display: 'block',
-                    fontFamily: 'var(--font-body)',
-                    fontWeight: '500',
-                    color: 'var(--brand-text)',
-                    marginBottom: '0.5rem',
-                    fontSize: '14px'
-                  }}
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem 1rem',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '0.5rem',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '16px',
-                    color: 'var(--brand-text)',
-                    backgroundColor: '#ffffff',
-                    outline: 'none',
-                    transition: 'border-color 0.2s ease'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = 'var(--brand-primary)'}
-                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
-                  required
-                />
-              </div>
-
-              <div style={{ marginBottom: '1.25rem' }}>
-                <label 
-                  htmlFor="password" 
-                  style={{
-                    display: 'block',
-                    fontFamily: 'var(--font-body)',
-                    fontWeight: '500',
-                    color: 'var(--brand-text)',
-                    marginBottom: '0.5rem',
-                    fontSize: '14px'
-                  }}
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
-                  autoComplete="current-password"
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem 1rem',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '0.5rem',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '16px',
-                    color: 'var(--brand-text)',
-                    backgroundColor: '#ffffff',
-                    outline: 'none',
-                    transition: 'border-color 0.2s ease'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = 'var(--brand-primary)'}
-                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="btn-primary w-full mt-7.5 disabled:opacity-50"
-              >
-                {loading ? 'Signing in...' : 'Sign in and continue to checkout'}
-              </button>
-
-              <a
-                href="#"
-                style={{
-                  display: 'block',
-                  textAlign: 'center',
+            {magicLinkSent ? (
+              <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+                <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📧</div>
+                <p style={{
                   fontFamily: 'var(--font-body)',
+                  fontSize: '1.1rem',
+                  color: 'var(--brand-text)',
+                  marginBottom: '1rem',
+                  lineHeight: '1.6'
+                }}>
+                  We've sent a magic link to <strong>{email}</strong>
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '0.9rem',
                   color: '#6b7280',
-                  marginTop: '1.125rem',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s ease'
-                }}
-                onMouseEnter={(e) => (e.target as HTMLAnchorElement).style.color = 'var(--brand-text)'}
-                onMouseLeave={(e) => (e.target as HTMLAnchorElement).style.color = '#6b7280'}
-              >
-                Forgot your password?
-              </a>
+                  marginBottom: '1.5rem'
+                }}>
+                  Click the link in your email to sign in securely
+                </p>
+                <button
+                  onClick={() => {setMagicLinkSent(false); setEmail('');}}
+                  style={{
+                    background: 'none',
+                    border: '1px solid var(--brand-primary)',
+                    color: 'var(--brand-primary)',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '0.5rem',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = 'var(--brand-primary)';
+                    e.target.style.color = 'white';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = 'transparent';
+                    e.target.style.color = 'var(--brand-primary)';
+                  }}
+                >
+                  Try a different email
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleMagicLinkSignIn}>
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <label 
+                    htmlFor="email" 
+                    style={{
+                      display: 'block',
+                      fontFamily: 'var(--font-body)',
+                      fontWeight: '500',
+                      color: 'var(--brand-text)',
+                      marginBottom: '0.5rem',
+                      fontSize: '14px'
+                    }}
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email for a magic link"
+                    style={{
+                      width: '100%',
+                      padding: '0.75rem 1rem',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '0.5rem',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '16px',
+                      color: 'var(--brand-text)',
+                      backgroundColor: '#ffffff',
+                      outline: 'none',
+                      transition: 'border-color 0.2s ease'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = 'var(--brand-primary)'}
+                    onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                    required
+                  />
+                  <p style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '12px',
+                    color: '#6b7280',
+                    marginTop: '0.5rem',
+                    lineHeight: '1.4'
+                  }}>
+                    We'll send you a secure sign-in link - no password needed! 
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary w-full mt-7.5 disabled:opacity-50"
+                >
+                  {loading ? 'Sending magic link...' : 'Send me a magic link'}
+                </button>
+              </form>
+            )}
 
               <span style={{
                 position: 'relative',
@@ -273,33 +268,17 @@ const NextAuthSignin = () => {
                 </span>
               </button>
 
-              <p style={{
-                textAlign: 'center',
-                marginTop: '1.5rem',
-                fontFamily: 'var(--font-body)',
-                color: '#6b7280',
-                fontSize: '14px'
-              }}>
-                Don&apos;t have an account?
-                <Link
-                  href="/signup"
-                  style={{
-                    color: 'var(--brand-primary)',
-                    textDecoration: 'underline',
-                    fontWeight: '500',
-                    marginLeft: '0.5rem',
-                    transition: 'color 0.2s ease, opacity 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLAnchorElement).style.opacity = '0.8';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as HTMLAnchorElement).style.opacity = '1';
-                  }}
-                >
-                  Sign Up Now!
-                </Link>
-              </p>
+              {!magicLinkSent && (
+                <p style={{
+                  textAlign: 'center',
+                  marginTop: '1.5rem',
+                  fontFamily: 'var(--font-body)',
+                  color: '#6b7280',
+                  fontSize: '14px'
+                }}>
+                  New to ScreenTimeJourney? The magic link will create your account automatically! 
+                </p>
+              )}
             </form>
           </div>
         </div>

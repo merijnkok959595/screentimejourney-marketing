@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import CredentialsProvider from "next-auth/providers/credentials";
+import EmailProvider from "next-auth/providers/email";
 
 const authOptions = {
   providers: [
@@ -8,33 +8,17 @@ const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-    CredentialsProvider({
-      name: "credentials",
-      credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" }
+    EmailProvider({
+      server: {
+        host: process.env.EMAIL_SERVER_HOST,
+        port: process.env.EMAIL_SERVER_PORT,
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
+        },
       },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          return null;
-        }
-
-        // Here you can add your own authentication logic
-        // For now, we'll do a simple check - replace this with your actual auth logic
-        if (credentials.email === "test@example.com" && credentials.password === "password") {
-          return {
-            id: "1",
-            email: credentials.email,
-            name: "Test User",
-          };
-        }
-
-        // You can integrate with your existing user database here
-        // For example, check against a database or API
-        
-        return null;
-      }
-    })
+      from: process.env.EMAIL_FROM,
+    }),
   ],
   pages: {
     signIn: '/signin',
