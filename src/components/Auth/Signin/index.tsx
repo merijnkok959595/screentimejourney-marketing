@@ -5,8 +5,7 @@ import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Footer from '@/components/Common/Footer';
-// Ultra-bulletproof Amplify configuration
-import { configureAmplifyNow, HARDCODED_CONFIG } from '@/lib/amplify-config';
+// Amplify configured at app root via side-effect import
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -14,16 +13,9 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  // Force Amplify configuration before any auth operations
+  // Amplify is configured at app root - no need to configure again
   useEffect(() => {
-    console.log('🔧 Signin: Ensuring Amplify is configured...');
-    const configured = configureAmplifyNow();
-    if (configured) {
-      console.log('✅ Signin: Amplify ready for authentication');
-    } else {
-      console.error('❌ Signin: Failed to configure Amplify');
-      toast.error('Authentication system error. Please refresh the page.');
-    }
+    console.log('🔧 Signin: Component mounted, Amplify should be configured');
   }, []);
 
   const handleSignIn = async (e: React.FormEvent) => {
@@ -33,12 +25,7 @@ const Signin = () => {
       return;
     }
 
-    // Force configuration before sign in attempt
-    const configured = configureAmplifyNow();
-    if (!configured) {
-      toast.error('Authentication system not ready. Please try again.');
-      return;
-    }
+    // Amplify is configured at app root
 
     try {
       setLoading(true);
@@ -86,16 +73,9 @@ const Signin = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      // Force configuration before OAuth attempt
-      const configured = configureAmplifyNow();
-      if (!configured) {
-        toast.error('Authentication system not ready. Please try again.');
-        return;
-      }
-
-      // Use hardcoded reliable values for OAuth
-      const cognitoDomain = HARDCODED_CONFIG.oauthDomain;
-      const clientId = HARDCODED_CONFIG.userPoolClientId;
+      // Use environment variables for OAuth
+      const cognitoDomain = process.env.NEXT_PUBLIC_OAUTH_DOMAIN || 'eu-north-11ksvbpqxn.auth.eu-north-1.amazoncognito.com';
+      const clientId = process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID || '5j2nk1vlfok15ss7mh242bpd1h';
       const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
       
       console.log('🔍 Google OAuth Config:', { cognitoDomain, clientId, redirectUri, origin: window.location.origin });

@@ -16,9 +16,7 @@ import PreviewSliderModal from "@/components/Common/PreviewSlider";
 
 import AnnouncementBar from "@/components/Common/AnnouncementBar";
 import { Toaster } from 'react-hot-toast';
-
-// 🚀 ULTRA-BULLETPROOF: Import the amplify configuration
-import '@/lib/amplify-config';
+import AmplifyInit from '@/components/AmplifyInit';
 
 export default function RootLayout({
   children,
@@ -205,6 +203,7 @@ export default function RootLayout({
         />
         
           <>
+            <AmplifyInit />
             <ReduxProvider>
               <CartModalProvider>
                 <ModalProvider>

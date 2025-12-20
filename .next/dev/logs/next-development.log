@@ -191,3 +191,59 @@
 [03:20:35.710] Server  LOG     ✓ Compiled in 97ms
 [03:20:35.786] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
 [03:20:35.786] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:23:55.008] Server  LOG     ✓ Compiled in 155ms
+[03:23:55.054] Server  LOG     AMPLIFY AUTH CONFIG {}
+[03:23:55.071] Server  LOG     FooterCurrencySelector render: {}
+[03:23:55.081] Browser LOG     AMPLIFY AUTH CONFIG {"Auth":{}}
+[03:23:55.156] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:23:55.311] Browser LOG     AMPLIFY AUTH CONFIG {"Auth":{}}
+[03:23:55.311] Browser LOG     🔄 AUTO-CONFIGURING AMPLIFY ON MODULE LOAD...
+[03:23:55.311] Browser LOG     🔧 ENV VARS DEBUG: {"isClient":true}
+[03:23:55.311] Browser LOG     🚀 USING CONFIG: {"oauthDomain":"eu-north-11ksvbpqxn.auth.eu-north-1.amazoncognito.com","region":"eu-north-1","userPoolClientId":"5j2nk1vlfok15ss7mh242bpd1h","userPoolId":"eu-north-1_1kSVbpQXN"}
+[03:23:55.311] Browser LOG     🎉 AMPLIFY CONFIGURED SUCCESSFULLY WITH ULTRA-BULLETPROOF METHOD!
+[03:23:55.311] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:23:55.311] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:23:55.311] Browser LOG     🔧 Signin: Ensuring Amplify is configured...
+[03:23:55.311] Browser LOG     ✅ Amplify already configured
+[03:23:55.311] Browser LOG     ✅ Signin: Amplify ready for authentication
+[03:23:55.311] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:23:55.311] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:23:56.415] Server  LOG     ✓ Compiled in 134ms
+[03:23:56.493] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:23:56.493] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:23:58.785] Server  LOG     ✓ Compiled in 85ms
+[03:23:58.861] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:23:58.861] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:24:00.056] Server  LOG     ✓ Compiled in 124ms
+[03:24:00.132] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:24:00.132] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:24:04.548] Server  LOG     ✓ Compiled in 109ms
+[03:24:04.624] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:24:04.624] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:24:34.808] Server  LOG     ✓ Compiled in 109ms
+[03:24:34.890] Server  LOG     FooterCurrencySelector render: {}
+[03:24:34.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:24:35.132] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:24:35.132] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:24:35.132] Browser LOG     🔧 Signin: Component mounted, Amplify should be configured
+[03:24:35.132] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:24:35.132] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:26:09.281] Server  LOG     ✓ Compiled in 176ms
+[03:26:09.332] Server  LOG     ✅ AMPLIFY CONFIG RUNNING IN BROWSER {}
+[03:26:09.341] Server  LOG     FooterCurrencySelector render: {}
+[03:26:09.354] Browser LOG     ✅ AMPLIFY CONFIG RUNNING IN BROWSER {"Auth":{}}
+[03:26:09.354] Browser LOG     ✅ AMPLIFY CONFIG RUNNING IN BROWSER {"Auth":{}}
+[03:26:09.354] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:26:09.354] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:26:09.354] Browser LOG     🔧 Signin: Component mounted, Amplify should be configured
+[03:26:09.354] Browser LOG     🔧 Signin: Component mounted, Amplify should be configured
+[03:26:09.354] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:26:09.354] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:26:09.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:26:09.580] Browser LOG     ✅ AMPLIFY CONFIG RUNNING IN BROWSER {"Auth":{}}
+[03:26:09.580] Browser LOG     ✅ AMPLIFY CONFIG RUNNING IN BROWSER {"Auth":{}}
+[03:26:09.580] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:26:09.580] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":true,"isOpen":false,"selectedCountry":null}
+[03:26:09.580] Browser LOG     🔧 Signin: Component mounted, Amplify should be configured
+[03:26:09.580] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[03:26:09.580] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
