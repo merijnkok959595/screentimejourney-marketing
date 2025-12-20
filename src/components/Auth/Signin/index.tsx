@@ -312,11 +312,29 @@ const Signin = () => {
                 </span>
               </button>
 
-              <p className="text-center mt-6">
+              <p style={{
+                textAlign: 'center',
+                marginTop: '1.5rem',
+                fontFamily: 'var(--font-body)',
+                color: '#6b7280',
+                fontSize: '14px'
+              }}>
                 Don&apos;t have an account?
                 <Link
                   href="/signup"
-                  className="text-dark ease-out duration-200 hover:text-blue pl-2"
+                  style={{
+                    color: 'var(--brand-primary)',
+                    textDecoration: 'underline',
+                    fontWeight: '500',
+                    marginLeft: '0.5rem',
+                    transition: 'color 0.2s ease, opacity 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLAnchorElement).style.opacity = '0.8';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLAnchorElement).style.opacity = '1';
+                  }}
                 >
                   Sign Up Now!
                 </Link>
