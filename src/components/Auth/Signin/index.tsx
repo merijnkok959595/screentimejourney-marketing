@@ -5,7 +5,7 @@ import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Footer from '@/components/Common/Footer';
-import { COGNITO_CONFIG } from '@/lib/cognito';
+import { COGNITO_CONFIG, ensureAmplifyConfigured } from '@/lib/cognito';
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -16,9 +16,15 @@ const Signin = () => {
   // Check Cognito configuration on component mount
   useEffect(() => {
     console.log('🔧 Signin: Checking Cognito config...', COGNITO_CONFIG);
-    if (!COGNITO_CONFIG.isConfigured) {
+    
+    // Ensure Amplify is configured on the client-side
+    const configured = ensureAmplifyConfigured();
+    
+    if (!configured || !COGNITO_CONFIG.isConfigured) {
       console.error('❌ Cognito not configured properly. Missing variables:', COGNITO_CONFIG.missingVariables);
       toast.error(`Authentication not configured. Missing: ${COGNITO_CONFIG.missingVariables.join(', ')}`);
+    } else {
+      console.log('✅ Signin: Cognito configuration verified');
     }
   }, []);
 
@@ -29,17 +35,20 @@ const Signin = () => {
       return;
     }
 
-    if (!COGNITO_CONFIG.isConfigured) {
-      toast.error('Authentication service not configured');
+    // Ensure Amplify is configured before attempting sign in
+    const configured = ensureAmplifyConfigured();
+    if (!configured || !COGNITO_CONFIG.isConfigured) {
+      toast.error('Authentication service not configured properly');
+      console.error('❌ Amplify configuration failed');
       return;
     }
 
     try {
       setLoading(true);
-      console.log('Attempting sign in with:', email);
+      console.log('🔐 Attempting sign in with:', email);
       
       const result = await Auth.signIn(email, password);
-      console.log('Sign in result:', result);
+      console.log('✅ Sign in successful:', result);
       
       toast.success('Signed in successfully! Redirecting to checkout...');
       
@@ -80,19 +89,27 @@ const Signin = () => {
 
   const handleGoogleSignIn = async () => {
     try {
+      // Ensure Amplify is configured
+      const configured = ensureAmplifyConfigured();
+      if (!configured) {
+        toast.error('Authentication service not configured properly');
+        return;
+      }
+
       // Use the window location to redirect to Cognito hosted UI for Google
       const cognitoDomain = process.env.NEXT_PUBLIC_OAUTH_DOMAIN;
       const clientId = process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID;
-      const redirectUri = encodeURIComponent(process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || window.location.origin + '/product/screentimejourney?checkout=true');
+      // Use the correct callback URL format
+      const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
       
-      console.log('Google OAuth Config:', { cognitoDomain, clientId, redirectUri });
+      console.log('🔍 Google OAuth Config:', { cognitoDomain, clientId, redirectUri, origin: window.location.origin });
       
       if (cognitoDomain && clientId) {
         const oauthUrl = `https://${cognitoDomain}/oauth2/authorize?identity_provider=Google&redirect_uri=${redirectUri}&response_type=CODE&client_id=${clientId}&scope=email+openid+profile`;
-        console.log('Redirecting to:', oauthUrl);
+        console.log('🚀 Redirecting to Google OAuth:', oauthUrl);
         window.location.href = oauthUrl;
       } else {
-        console.error('Missing OAuth config:', { cognitoDomain, clientId });
+        console.error('❌ Missing OAuth config:', { cognitoDomain, clientId });
         toast.error('Google sign in configuration missing');
       }
     } catch (error) {

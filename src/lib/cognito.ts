@@ -1,17 +1,31 @@
 import { Amplify } from 'aws-amplify';
 
-// Debug environment variables
+// Debug environment variables (client & server)
 console.log('🔧 Cognito Environment Check:', {
   region: process.env.NEXT_PUBLIC_AWS_REGION,
   userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID,
   userPoolClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID,
   oauthDomain: process.env.NEXT_PUBLIC_OAUTH_DOMAIN,
+  redirectSignIn: process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN,
+  redirectSignOut: process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNOUT,
+  googleClientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+  isClient: typeof window !== 'undefined',
   isConfigured: Boolean(
     process.env.NEXT_PUBLIC_AWS_REGION && 
     process.env.NEXT_PUBLIC_USER_POOL_ID && 
     process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID
   )
 });
+
+// Additional client-side check
+if (typeof window !== 'undefined') {
+  console.log('🌐 Client-side environment check:', {
+    hasRegion: !!process.env.NEXT_PUBLIC_AWS_REGION,
+    hasPoolId: !!process.env.NEXT_PUBLIC_USER_POOL_ID,
+    hasClientId: !!process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID,
+    hasOAuthDomain: !!process.env.NEXT_PUBLIC_OAUTH_DOMAIN
+  });
+}
 
 // Only configure Amplify if we have the required environment variables
 if (
@@ -32,11 +46,13 @@ if (
           scopes: ['email', 'openid', 'profile'],
           redirectSignIn: [
             process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || 'https://screentimejourney.com/auth/callback',
-            'http://localhost:3000/auth/callback'
+            'http://localhost:3333/auth/callback',
+            'https://screentimejourney-jl4wizwgq-merijnkok959595s-projects.vercel.app/auth/callback'
           ],
           redirectSignOut: [
             process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNOUT || 'https://screentimejourney.com',
-            'http://localhost:3000'
+            'http://localhost:3333',
+            'https://screentimejourney-jl4wizwgq-merijnkok959595s-projects.vercel.app'
           ],
           responseType: 'code',
           providers: ['Google']
@@ -49,6 +65,56 @@ if (
 } else {
   console.error('❌ Missing required Cognito environment variables. Please check Vercel environment settings.');
 }
+
+// Export a function to ensure Amplify is configured (can be called from components)
+export const ensureAmplifyConfigured = () => {
+  console.log('🔄 Ensuring Amplify is configured...');
+  
+  if (
+    process.env.NEXT_PUBLIC_AWS_REGION && 
+    process.env.NEXT_PUBLIC_USER_POOL_ID && 
+    process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID &&
+    process.env.NEXT_PUBLIC_OAUTH_DOMAIN
+  ) {
+    try {
+      Amplify.configure({
+        Auth: {
+          Cognito: {
+            region: process.env.NEXT_PUBLIC_AWS_REGION,
+            userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID,
+            userPoolClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID,
+            loginWith: {
+              oauth: {
+                domain: process.env.NEXT_PUBLIC_OAUTH_DOMAIN,
+                scopes: ['email', 'openid', 'profile'],
+                redirectSignIn: [
+                  process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNIN || 'https://screentimejourney.com/auth/callback',
+                  'http://localhost:3333/auth/callback',
+                  'https://screentimejourney-jl4wizwgq-merijnkok959595s-projects.vercel.app/auth/callback'
+                ],
+                redirectSignOut: [
+                  process.env.NEXT_PUBLIC_OAUTH_REDIRECT_SIGNOUT || 'https://screentimejourney.com',
+                  'http://localhost:3333',
+                  'https://screentimejourney-jl4wizwgq-merijnkok959595s-projects.vercel.app'
+                ],
+                responseType: 'code',
+                providers: ['Google']
+              }
+            }
+          }
+        }
+      });
+      console.log('✅ Amplify re-configured successfully');
+      return true;
+    } catch (error) {
+      console.error('❌ Failed to configure Amplify:', error);
+      return false;
+    }
+  } else {
+    console.error('❌ Cannot configure Amplify - missing environment variables');
+    return false;
+  }
+};
 
 export const COGNITO_CONFIG = {
   REGION: process.env.NEXT_PUBLIC_AWS_REGION,

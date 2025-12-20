@@ -43,3 +43,60 @@
 [00:06:54.986] Browser ERROR   ❌ Cognito not configured properly. Missing variables: ["NEXT_PUBLIC_AWS_REGION","NEXT_PUBLIC_USER_POOL_ID","NEXT_PUBLIC_USER_POOL_CLIENT_ID","NEXT_PUBLIC_OAUTH_DOMAIN"]
 [00:06:54.986] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
 [00:06:54.986] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.179] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.180] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.180] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.181] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.181] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.181] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.181] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.181] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.181] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.181] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.316] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:13:55.316] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:14:48.864] Server  LOG     ✓ Compiled in 174ms
+[00:14:48.913] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:14:48.913] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:14:48.913] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:14:48.913] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:14:48.913] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:14:48.913] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:14:48.913] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:14:48.913] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:14:58.032] Server  LOG     ✓ Compiled in 191ms
+[00:14:58.076] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:14:58.076] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:14:58.076] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:14:58.076] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:14:58.076] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:14:58.076] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:14:58.076] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:14:58.076] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:13.352] Server  LOG     ✓ Compiled in 101ms
+[00:15:13.428] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:13.428] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:23.950] Server  LOG     ✓ Compiled in 136ms
+[00:15:24.025] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:24.025] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:35.866] Server  LOG     ✓ Compiled in 113ms
+[00:15:35.943] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:35.943] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:43.004] Server  LOG     ✓ Compiled in 114ms
+[00:15:43.065] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:15:43.065] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:15:43.065] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:15:43.065] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:15:43.065] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:15:43.065] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:15:43.065] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:43.065] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:48.688] Server  LOG     ✓ Compiled in 99ms
+[00:15:48.756] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:15:48.756] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:15:48.756] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:15:48.756] Browser LOG     🔧 Cognito Environment Check: {"isClient":true,"isConfigured":false}
+[00:15:48.756] Browser LOG     🌐 Client-side environment check: {"hasClientId":false,"hasOAuthDomain":false,"hasPoolId":false,"hasRegion":false}
+[00:15:48.756] Browser ERROR   ❌ Missing required Cognito environment variables. Please check Vercel environment settings.
+[00:15:48.756] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
+[00:15:48.756] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
