@@ -1731,12 +1731,15 @@ p, span, div {
     /* Force sticky on mobile Safari */
     -webkit-position: sticky !important;
     -webkit-top: 0 !important;
+    /* Ensure announcement bar stays sticky on mobile */
+    background-color: #2E0456 !important;
+    height: 42px !important;
   }
   
   /* === HEADER === */
   .header {
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9 !important;
     transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: sticky !important;
     top: 42px !important;
@@ -1746,6 +1749,30 @@ p, span, div {
     /* Force sticky on mobile Safari */
     -webkit-position: sticky !important;
     -webkit-top: 42px !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+  }
+  
+  /* === TRANSPARENT HEADER (HOME PAGE) === */
+  .transparent-header {
+    position: sticky !important;
+    top: 42px !important;
+    z-index: 99 !important;
+    width: 100% !important;
+    left: 0 !important;
+    /* Force sticky on mobile Safari */
+    -webkit-position: sticky !important;
+    -webkit-top: 42px !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    transition: all 0.3s ease !important;
+    border-bottom: none !important;
+  }
+  
+  /* When scrolled, make transparent header solid */
+  .transparent-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   }
   
   .header.scrolled {
@@ -2068,6 +2095,47 @@ p, span, div {
    ============================================================================ */
 
 @media (max-width: 480px) {
+  /* === MOBILE SIGNIN PAGE === */
+  .signin-container h2 {
+    margin-top: var(--mobile-spacing-xl) !important;
+    margin-bottom: var(--mobile-spacing-lg) !important;
+  }
+  
+  .signin-container .card {
+    margin-top: var(--mobile-spacing-xl) !important;
+  }
+  
+  /* === MOBILE DRAWER MENU BUTTONS === */
+  .mobile-menu .start-now-btn,
+  .mobile-menu .login-btn {
+    width: 100% !important;
+    min-width: auto !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    flex: 1 !important;
+  }
+  
+  .mobile-menu .button-container {
+    display: flex !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  
+  /* === STICKY START NOW BUTTON FIX === */
+  .sticky-start-now {
+    right: 16px !important;
+    width: auto !important;
+    max-width: calc(100vw - 120px) !important; /* Leave space for add to cart widget */
+    z-index: 40 !important; /* Below add to cart widget (50) */
+  }
+  
+  .sticky-add-to-cart {
+    z-index: 50 !important; /* Above start now button */
+    right: 16px !important;
+  }
+  
   /* === HEADER === */
   .header {
     padding: 0;

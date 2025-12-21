@@ -60,9 +60,9 @@ const NextAuthSignin = () => {
 
   return (
     <>
-    <section className="overflow-hidden py-20" style={{ backgroundColor: '#f9f9f9' }}>
+    <section className="overflow-hidden py-20 signin-container" style={{ backgroundColor: '#f9f9f9' }}>
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
-        <div className="max-w-[570px] w-full mx-auto rounded-xl bg-white shadow-1 p-4 sm:p-7.5 xl:p-11">
+        <div className="max-w-[570px] w-full mx-auto rounded-xl bg-white shadow-1 p-4 sm:p-7.5 xl:p-11 card">
           <div className="text-center mb-11">
             <h2 style={{
               fontFamily: 'var(--font-heading)',

@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign Up | ScreenTimeJourney - Join Your Digital Detox Journey",
+  title: "SCREENTIMEJOURNEY",
   description: "Create your ScreenTimeJourney account and start breaking free from digital distractions today.",
   // other metadata
 };

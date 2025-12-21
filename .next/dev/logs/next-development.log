@@ -422,3 +422,4 @@ the name `NextAuthSignin` is defined multiple times
 [03:38:11.870] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
 [03:38:11.870] Browser LOG     FooterCurrencySelector render: {"countriesLength":45,"filteredLength":45,"isLoading":false,"isOpen":false,"selectedCountry":{"code":"DE","currency":"EUR","flag":"🇩🇪","name":"Germany","price":19.99,"symbol":"€"}}
 [04:19:46.450] Server  LOG     ✓ Compiled in 282ms
+[21:02:40.441] Server  LOG     ✓ Compiled in 238ms
